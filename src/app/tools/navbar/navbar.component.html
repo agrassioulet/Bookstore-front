@@ -1,0 +1,64 @@
+<div class="navbar-container">
+
+    <div class="nav-top bg-white d-flex align-items-center justify-content-between">
+        <div class="nav-top-left d-flex align-items-center">
+            <img src="../../../assets/images/logo.svg" alt="">
+            <a class="logo" routerLink=""><span>Le BAZAR</span></a>
+            <a routerLink="/product-list" class="font-size-1">Produits</a>
+        </div>
+        <div class="nav-top-right">
+            <button (click)="openSearch=!openSearch" [ngClass]="{'focus': openSearch == true}"><i
+                    class="fa-solid fa-magnifying-glass"></i></button>
+            <button><i class="fa-solid fa-cart-shopping"></i></button>
+            <button><i class="fa-solid fa-user"></i></button>
+        </div>
+
+    </div>
+    <div class="nav-bottom" *ngIf="openSearch">
+        <div class="nav-search d-flex justify-content-center align-items-center">
+            <input type="text" placeholder="Rechercher dans le bazar">
+            <button (click)="openCategories=!openCategories"><span>Afficher les catégories</span>
+                <i class="fa-solid fa-angle-{{openCategories == false ? 'down' : 'up'}}"></i></button>
+        </div>
+
+        <div class="nav-categories" *ngIf="openCategories">
+
+            <div>
+                <p><a routerLink="">Jeux</a></p>
+                <p><a routerLink="">Véhicules miniatures</a></p>
+                <p><a routerLink="">Figurines</a></p>
+                <p><a routerLink="">Maquettes</a></p>
+                <p><a routerLink="">Modélisme</a></p>
+    
+            </div>
+            <div>
+                <p><a routerLink="">Lifestyle</a></p>
+                <p><a routerLink="">Instruments de musique</a></p>
+                <p><a routerLink="">Guitares, basses, accessoires</a></p>
+                <p><a routerLink="">Sports</a></p>
+                <p><a routerLink="">Fitness</a></p>
+                
+            </div>
+            <div>
+                <p><a routerLink="">Gastronomie</a></p>
+                <p><a routerLink="">Vins</a></p>
+                <p><a routerLink="">Epicerie</a></p>
+                <p><a routerLink="">Pâtes à fruit</a></p>
+                
+            </div>
+            <div>
+                <p><a routerLink="">Media</a></p>
+                <p><a routerLink="">Livres, BD, revues</a></p>
+                <p><a routerLink="">DVD, cinéma</a></p>
+                <p><a routerLink="">Musique, CD, vinyles</a></p>     
+            </div>
+    
+        </div>
+
+    </div>
+
+
+
+
+
+</div>
