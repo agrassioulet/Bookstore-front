@@ -6,6 +6,11 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.hide-button-style {
+    border: none;
+    background-color: transparent;
+}
+
 
 .font-size-1 {
     font-size: 1em;

@@ -1,0 +1,57 @@
+$marine-color: #000083;
+
+
+.create-account {
+    display: flex;
+    color: white;
+    background: linear-gradient(to bottom right, #BD34C6, #8E0A96);
+    height: 300px;
+    padding: 30px 60px;
+
+    .text-side {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .text {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            line-height: 1.2em;
+
+        }
+
+        .button-container {
+            // margin-top: auto;
+            button {
+                background-color: $marine-color;
+                border: none;
+                color: white;
+                padding: 15px;
+                font-size: 1.5em;
+                border-radius: 5%;
+            }
+
+        }
+
+    }
+
+    .img-container {
+        flex: 1;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+
+        img {
+            width: 300px;    
+        }
+
+    } 
+
+
+}

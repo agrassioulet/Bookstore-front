@@ -98,12 +98,12 @@ a {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         padding: 30px 100px;
         display: flex;
-        height: 250px;
         background-color: white;
         border-bottom: 5px solid $marine-color;
     
         > * {
             flex-grow: 1;
+            > :last-child {margin: 0;}
         }
     }
 
