@@ -12,4 +12,9 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  getRandom() {
+    return Math.floor(Math.random() * 1000)
+  }
+
 }

@@ -8,25 +8,28 @@ $marine-color: #000083;
 
     .filter-part {
 
-        .title {
-            // border-bottom: 2px solid $marine-color;
+        button {color: $marine-color !important;}
+
+        > .title {
+            border-bottom: 1px solid grey;
             font-size: 1.3em;
-            padding-bottom: 0;
+            padding-bottom: 10px;
+            margin-bottom: 50px;
         }
 
         .filter-list {
             color: $marine-color;
             font-size: 1.1em;
 
-            > *  {
-                padding: 20px 0;
-                margin: 50px 0;
-                border-bottom: solid 1px grey;
-                border-top: solid 1px grey;
-            }
-
 
             .language-filter, .number-page-filter {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-bottom: 50px;
+                // border-bottom: solid 1px grey;
+                border-bottom: solid 1px grey;
+                border-top: solid 1px grey;
+
                 .title {
                     font-size: 1.1em;
                     padding-bottom: 5px;
@@ -50,6 +53,93 @@ $marine-color: #000083;
         }
 
     }
+
+
+    .product-list-part {
+
+        .container-product {
+            width: 80%;
+            margin-left: 200px;
+            margin-bottom: 60px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid grey;
+
+            .product {
+
+                width: 600px;
+                height: 300px;
+
+    
+                .img-container {
+                    width: 200px;
+                    height: 100%;
+    
+                    overflow: hidden;
+                }
+    
+                .infos {
+                    padding-left: 30px;
+                    flex-grow: 1;
+    
+                    >.title {
+                        font-size: 2em;
+                    }
+    
+                    .contributor-container {
+                        color: $marine-color;
+                        font-size: 1.2em;
+    
+                        .contributor-name {
+                            font-style: italic;
+                        }
+                    }
+    
+                    .evaluation {
+                        margin-bottom: 10px;
+                        .number-stars {
+                            width: 150px;
+                        }
+    
+                        .number-evaluation {
+                            color: $marine-color;
+                            font-size: 1.0em;
+                            position: relative;
+                            bottom: -2px;
+                        }
+    
+                        i {
+                            font-size: 1.5em;
+                            color: rgb(225, 225, 0);
+                        }
+    
+                    }
+    
+                    .publication-date {
+                        color: grey;
+                        font-size: 0.8em;
+                        margin-bottom: 20px;
+                    }
+    
+                    .bottom-block {
+                        margin-top: auto;
+
+                        i {
+                            font-size: 3em;
+                            color: #4689ef;
+                        }
+                    }
+    
+                }
+    
+            }
+
+
+        }
+
+
+
+    } 
+
 
 
 

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   openSearch: boolean = true;
   openCategories: boolean = false;
+  openUserPanel: boolean = false;
 
   constructor() { }
 

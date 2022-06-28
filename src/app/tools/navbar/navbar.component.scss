@@ -3,6 +3,10 @@
 
 $marine-color: #000083;
 
+.focus-button {
+    border: 1px solid $marine-color !important;
+}
+
 a {
     text-decoration: none;
     transition-duration: 200ms;
@@ -56,9 +60,44 @@ a {
 
             }
 
-            &:hover, &.focus {
+            &:hover {
                 border: 1px solid $marine-color;
             }
+
+        }
+
+
+        .user-container {
+            position: relative;
+
+            .user-actions {
+                position: relative;
+                top: 130%;
+                right: 0;
+                position: absolute;
+                width: 150px;
+
+                .arrow-dropdown {
+                    font-size: 2em;
+                    color: rgb(246, 246, 246);
+                    position: absolute;
+                    top: -15px;
+                    right: 15px;
+                }
+
+                .action {
+                    // transition-duration: 0.5s;
+                    background-color: rgb(246, 246, 246);
+                    height: 50px;
+                    border-left: 5px solid transparent;
+                    &:hover {
+                        border-left: 5px solid $marine-color;
+                        text-decoration: underline;
+                        
+                    }
+                }
+            }
+
 
         }
 

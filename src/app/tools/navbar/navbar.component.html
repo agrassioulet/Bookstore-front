@@ -3,14 +3,24 @@
     <div class="nav-top bg-white d-flex align-items-center justify-content-between">
         <div class="nav-top-left d-flex align-items-center">
             <img src="../../../assets/images/logo.svg" alt="">
-            <a class="logo" routerLink=""><span>Le BAZAR</span></a>
+            <a class="logo" routerLink=""><span>Au Bazar</span></a>
             <a routerLink="/product-list" class="font-size-1">Produits</a>
         </div>
-        <div class="nav-top-right">
-            <button (click)="openSearch=!openSearch" [ngClass]="{'focus': openSearch == true}"><i
+        <div class="nav-top-right d-flex">
+            <button (click)="openSearch=!openSearch" [ngClass]="{'focus-button': openSearch == true}"><i
                     class="fa-solid fa-magnifying-glass"></i></button>
-            <button><i class="fa-solid fa-cart-shopping"></i></button>
-            <button><i class="fa-solid fa-user"></i></button>
+            <button class=""><i class="fa-solid fa-cart-shopping"></i></button>
+            <div class="user-container">
+                <button (click)="openUserPanel=!openUserPanel" [ngClass]="{'focus-button' : openUserPanel}"><i class="fa-solid fa-user"></i></button>
+
+                <div class="user-actions " *ngIf="openUserPanel">
+                    <div class="arrow-dropdown"><i class="fa-solid fa-caret-up"></i></div>
+                    <div class="action flex-center cursor-pointer">S'inscrire</div>
+                    <div class="action flex-center cursor-pointer">Se connecter</div>
+                </div>
+
+
+            </div>
         </div>
 
     </div>
