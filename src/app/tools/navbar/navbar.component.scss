@@ -22,7 +22,7 @@ a {
 
 
 .nav-top {
-    border-bottom: solid 5px $marine-color;
+    border-bottom: solid 2px $marine-color;
     height: 70px;
     padding: 0 30px;
 
@@ -136,15 +136,25 @@ a {
 
     .nav-categories {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        padding: 30px 100px;
+        padding: 20px 100px;
         display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-size: 1.2em;
+        height: 450px;
         background-color: white;
         border-bottom: 5px solid $marine-color;
-    
+
         > * {
-            flex-grow: 1;
-            > :last-child {margin: 0;}
+            margin: 10px 0;
         }
+
+
+    
+        // > * {
+        //     flex-grow: 1;
+        //     > :last-child {margin: 0;}
+        // }
     }
 
 

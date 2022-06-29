@@ -40,6 +40,8 @@ $marine-color: #000083;
                     p {
                         margin: 5px 0;
 
+                        &:last-child {margin: 0;}
+
                         .number_items {
                             color: grey;
                             font-size: 0.8em;
@@ -98,6 +100,10 @@ $marine-color: #000083;
                             font-style: italic;
                         }
                     }
+
+                    // .category {
+
+                    // }
     
                     .evaluation {
                         margin-bottom: 10px;
