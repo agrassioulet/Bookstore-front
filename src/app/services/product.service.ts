@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ICategory } from '../models/category';
 import { IProduct } from '../models/product';
 
 @Injectable({
@@ -10,11 +11,14 @@ import { IProduct } from '../models/product';
 export class ProductService {
 
   url = environment.URL_BACKEND + '/product'
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
   public getAllProducts() {
-    return this.httpClient.get<IProduct[]>(this.url + '/get-all-products');
+    return this.httpClient.get<{status: number, data: IProduct[]}>(this.url + '/get-all-products');
+  }
+
+  public getAllCategories() {
+    return this.httpClient.get<{status: number, data: ICategory[]}>(this.url + '/get-all-categories');
   }
 
   public getProductById(id: string): Observable<any> {

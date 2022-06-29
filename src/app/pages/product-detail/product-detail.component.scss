@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+$marine-color: #000083;
+$blue-sky: #22B5F0;
+
+.product-detail-container {
+
+    padding-top: 80px;
+
+
+    .img-container {
+        margin-right: 10px;
+    }
+
+
+    .block1 {
+        
+        padding-top: 5px;
+
+        .title {
+            font-size: 2.3em;
+            font-weight: bold;
+            color: $marine-color;
+        }
+
+        .contributor {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            color: grey;
+            img {
+                width: 30px;
+                margin-right: 10px;
+            }
+
+            .contributor-name {
+                // font-style: italic;
+            }
+        }
+
+        .add-cart-b {
+            background-color: $blue-sky;
+            color: $marine-color;
+            font-size: 1.4em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 3px
+        }
+
+        .social-share {
+            margin: 10px 0;
+
+            i {
+                font-size: 2em;
+                margin-right: 7px;
+
+                &:hover {
+                    color: $blue-sky;
+                } 
+
+            }
+        }
+
+        .time-delivery {
+
+            margin-top: 40px;
+
+            i {
+                font-size: 1.7em;
+                margin-right: 10px;
+                color: $marine-color;
+            }
+
+
+        }
+
+
+
+
+    }
+
+
+    .block2 {
+
+        margin-top: 80px;
+        padding-left: 200px;
+
+        .description {
+            color: grey;
+            font-size: 1.2em;
+        }
+
+        .block3 {
+            margin-top: 80px;
+            display: flex;
+
+            .details-block, .properties-block {        
+
+                .text {
+                    display: flex;
+                    align-items: baseline;
+                    font-size: 0.9em;
+                    color: rgb(83, 83, 83);
+                    margin: 8px 0;
+                }
+
+                .prop-text {
+                    width: 200px;
+                }
+
+                .value-text {
+                    color: black;
+                    font-family: 'Roboto Slab', serif;
+                    font-size: 0.9em;
+                    // font-weight: bold;
+                }
+
+                .title {
+                    color: black;
+                    font-weight: bold;
+                    font-size: 1.3em;
+                }
+
+                width: 600px;
+                // background-color: azure;
+
+            }
+
+            .properties-block {
+
+                width: 600px;
+                // background-color: beige;
+
+            }
+
+
+
+        }
+    }
+
+
+
+
+}

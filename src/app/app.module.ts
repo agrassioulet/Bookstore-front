@@ -12,6 +12,8 @@ import { MATERIAL } from './material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './tools/footer/footer.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,11 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     MATERIAL,
     ReactiveFormsModule,
