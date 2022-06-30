@@ -2,16 +2,14 @@
 $marine-color: #000083;
 $blue-sky: #22B5F0;
 
-
 .register-container {
-
-
+    overflow-y: scroll;
     background-color: rgb(194, 228, 228);
     height: 100vh;
 
     .register-box {
         width: 40vw;
-        margin: 0 auto;
+        margin: 20px auto;
 
         background-color: white;
         padding: 50px 100px;
@@ -81,6 +79,10 @@ $blue-sky: #22B5F0;
 
         .errors {
             color: red;
+            margin-top: 30px;
+            div {
+                letter-spacing: 1px;
+            }
         }
 
 

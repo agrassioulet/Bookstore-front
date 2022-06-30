@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required, Validators.email]),
+    confirmPassword: new FormControl('', [Validators.required]),
   })
 
   get f() { return this.userForm }
@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
     var propTab = ['firstname', 'lastname', 'email', 'password', 'confirmPassword']
 
     if (!this.userForm.valid) {
-
       propTab.forEach(property => {
 
         var controlErrors = this.userForm.get(property)?.errors
@@ -41,20 +40,26 @@ export class RegisterComponent implements OnInit {
           errorsTab.push({ prop: property, val: Object.keys(controlErrors)[0] })
           // [prop, Object.keys(controlErrors)[0]])
         }
-
       })
-
       console.log(errorsTab)
       errorsTab.forEach(line => {
         this.errorsDisplay.push(this.getErrorLabel(line))
       })
-
-      // Si tous les champs sont correctement remplis, il reste à vérifier la correspondance des champs 
-      // pour le mot de passe
-      if(errorsTab == [] && this.userForm.get('password') != this.userForm.get('password')) {
-        this.errorsDisplay.push('Le mot de passe et sa confirmation ne correspondent pas.')
-      }
     }
+
+    // Si tous les champs sont correctement remplis, il reste à vérifier la correspondance des champs 
+    // pour le mot de passe
+    console.log('test on confirm password')
+    console.log('errorsTab on confirm password', errorsTab)
+    if(errorsTab == []) {console.log('errorTab is empty')}
+
+    console.log('password', this.userForm.get('password'))
+    console.log('confirmPassword', this.userForm.get('confirmPassword'))
+
+    if (errorsTab.length == 0 && this.userForm.get('password')?.value != this.userForm.get('confirmPassword')?.value) {
+      this.errorsDisplay.push('Le mot de passe et sa confirmation ne correspondent pas.')
+    }
+
   }
 
 
@@ -76,7 +81,10 @@ export class RegisterComponent implements OnInit {
           return 'error';
       }
     }
-    else return "L'email n'est pas valide."
+    else {
+      console.log('email error: ', line)
+      return "L'email n'est pas valide."
+    }
   }
 
 
