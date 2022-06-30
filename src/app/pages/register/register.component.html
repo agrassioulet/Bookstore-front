@@ -1,0 +1,50 @@
+<div class="register-container">
+
+
+    <div class="register-box">
+
+        <div class="img-container"><img src="../../../assets/images/PeterM-Feather-2.svg"></div>
+
+        <p class="title">S'inscrire</p>
+
+        <form action="" [formGroup]="userForm" #form="ngForm">
+
+            <div class="field" id="lastname" >
+                <input type="text" id="lastname-input" placeholder='' formControlName="lastname">
+                <label for="lastname-input">Nom *</label>
+            </div>
+
+            <div class="field" id="firstname" >
+                <input type="text" id="firstname-input" placeholder='' formControlName="firstname">
+                <label for="firstname-input">Prénom *</label>
+            </div>
+
+            <div class="field" id="email" >
+                <input type="text" id="email-input" placeholder='' formControlName="email">
+                <label for="email-input">Email *</label>
+            </div>
+
+            <div class="field" id="password" >
+                <input type="text" id="password-input" placeholder='' formControlName="password">
+                <label for="password-input">Mot de passe *</label>
+            </div>
+
+            <div class="field" id="confirm-password" >
+                <input type="text" id="confirm-password-input" placeholder='' formControlName="confirmPassword">
+                <label for="confirm-password-input">Confirmez votre mot de passe *</label>
+            </div>
+
+            <button (click)="register()" class="subscribe-btn">Valider</button>
+
+            <div class="errors">
+                <div *ngFor="let error of errorsDisplay">{{error}}</div>
+
+            </div>
+            
+
+        </form>
+
+
+    </div>
+
+</div>

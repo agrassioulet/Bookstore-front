@@ -9,11 +9,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './tools/navbar/navbar.component';
 
 import { MATERIAL } from './material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './tools/footer/footer.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,15 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
     NavbarComponent,
     FooterComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     MATERIAL,
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,
