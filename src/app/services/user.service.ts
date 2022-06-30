@@ -15,7 +15,7 @@ export class UserService {
   
 
   public getUserInfos() {
-    return this.httpClient.get<{status: string, data: any}>(this.url + "/get-user-infos");
+    return this.httpClient.get<{status: number, data: any}>(this.url + "/get-user-infos");
   }
 
 }

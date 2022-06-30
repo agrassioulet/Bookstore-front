@@ -14,10 +14,16 @@
                 <button (click)="openUserPanel=!openUserPanel" [ngClass]="{'focus-button' : openUserPanel}"><i
                         class="fa-solid fa-user"></i></button>
 
-                <div class="user-actions " *ngIf="openUserPanel">
+                <div class="user-actions logged-in" *ngIf="openUserPanel && !isUserLogin">
                     <div class="arrow-dropdown"><i class="fa-solid fa-caret-up"></i></div>
                     <div class="action flex-center cursor-pointer" routerLink="/register">S'inscrire</div>
                     <div class="action flex-center cursor-pointer" routerLink="/login">Se connecter</div>
+                </div>
+
+                <div class="user-actions logged-out" *ngIf="openUserPanel && isUserLogin">
+                    <div class="arrow-dropdown"><i class="fa-solid fa-caret-up"></i></div>
+                    <div class="action flex-center cursor-pointer" (click)="logout()">Se déconnecter</div>
+                    <div class="action flex-center cursor-pointer" routerLink="/login">Accéder à mon compte</div>
                 </div>
 
 

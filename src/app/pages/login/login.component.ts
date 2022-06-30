@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   get f() { return this.userForm }
 
   constructor(
-    private auth: AuthentificationService
+    private auth: AuthentificationService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
           this.auth.setToken(result.token)
           this.state = enumState.CONNECTED
           this.message = "Connexion réussie."
+          this.router.navigate(['']);
         }
 
       })

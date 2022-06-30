@@ -76,7 +76,10 @@ a {
                 top: 130%;
                 right: 0;
                 position: absolute;
-                width: 150px;
+                
+                &.logged-in {width: 150px;}
+                &.logged-out {width: 180px;}
+                
 
                 .arrow-dropdown {
                     font-size: 2em;
@@ -89,11 +92,10 @@ a {
                 .action {
                     // transition-duration: 0.5s;
                     background-color: rgb(246, 246, 246);
-                    height: 50px;
+                    height: 40px;
                     border-left: 5px solid transparent;
                     &:hover {
                         border-left: 5px solid $marine-color;
-                        text-decoration: underline;
                         
                     }
                 }

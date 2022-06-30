@@ -13,7 +13,7 @@ export class AuthentificationService {
     private httpClient: HttpClient
   ) { }
 
-  isUserLogin() {
+  isTokenSaved() {
     if (this.getToken()) {
       return true
     }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IUser } from 'src/app/models/user';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,20 +11,13 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit {
 
 
+
   constructor(
     private userService: UserService,
     private auth: AuthentificationService
   ) { }
 
-  ngOnInit(): void {
-
-    console.log('token', this.auth.getToken()) 
-
-
-    this.userService.getUserInfos().subscribe(result => {
-      console.log(result)
-    })
-  }
+  ngOnInit(): void {  }
 
 
 
