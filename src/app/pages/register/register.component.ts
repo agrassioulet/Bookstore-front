@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IUser, UserOperators } from 'src/app/models/user';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 
 @Component({
   selector: 'app-register',
@@ -7,28 +9,32 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  message: String = ''
+  user: IUser = UserOperators.initUser();
   formErrors: String = ''
   errorsDisplay: string[] = []
-  // errorsTab: string[] = []
 
   userForm = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
   })
 
   get f() { return this.userForm }
 
-  constructor() { }
+  constructor(
+    public authentificationService: AuthentificationService
+  ) { }
 
   ngOnInit(): void { }
 
   register() {
     this.errorsDisplay = []
     var errorsTab: { prop: String, val: string }[] = []
-    var propTab = ['firstname', 'lastname', 'email', 'password', 'confirmPassword']
+    var propTab = ['firstname', 'lastname', 'email', 'username', 'password', 'confirmPassword']
 
     if (!this.userForm.valid) {
       propTab.forEach(property => {
@@ -36,9 +42,7 @@ export class RegisterComponent implements OnInit {
         var controlErrors = this.userForm.get(property)?.errors
         if (controlErrors != null) {
           console.log('for ' + property)
-          console.log(controlErrors)
           errorsTab.push({ prop: property, val: Object.keys(controlErrors)[0] })
-          // [prop, Object.keys(controlErrors)[0]])
         }
       })
       console.log(errorsTab)
@@ -49,19 +53,33 @@ export class RegisterComponent implements OnInit {
 
     // Si tous les champs sont correctement remplis, il reste à vérifier la correspondance des champs 
     // pour le mot de passe
-    console.log('test on confirm password')
-    console.log('errorsTab on confirm password', errorsTab)
-    if(errorsTab == []) {console.log('errorTab is empty')}
-
-    console.log('password', this.userForm.get('password'))
-    console.log('confirmPassword', this.userForm.get('confirmPassword'))
-
     if (errorsTab.length == 0 && this.userForm.get('password')?.value != this.userForm.get('confirmPassword')?.value) {
       this.errorsDisplay.push('Le mot de passe et sa confirmation ne correspondent pas.')
     }
 
-  }
+    // Si aucune erreur n'a été rencontrée
+    if (this.errorsDisplay = []) {
+      this.authentificationService.register(this.user).subscribe((result: any) => {
+        console.log("result", result)
+        // Si la connexion a pu s'établir
+        if (result.status == 1) {
 
+          this.message = 'Utilisateur créé'
+
+          // this._auth.setDataInLocalStorage('userData', JSON.stringify(result.data));
+          // this._auth.setDataInLocalStorage('token', result.token);
+          // this.message = 'Vous êtes connecté'
+
+
+        }// sinon
+        else {
+          // échec de l'inscription coté serveur
+        }
+      })
+
+    }
+
+  }
 
 
   getErrorLabel(line: { prop: String, val: String }) {
@@ -73,6 +91,8 @@ export class RegisterComponent implements OnInit {
           return 'Le nom est recquis.'
         case 'email':
           return "L'email est recquis."
+        case 'username':
+          return 'Le pseudo est recquis.'
         case 'password':
           return "Le mot de passe est recquis."
         case 'confirmPassword':

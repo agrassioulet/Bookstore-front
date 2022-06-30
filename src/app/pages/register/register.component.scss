@@ -85,6 +85,18 @@ $blue-sky: #22B5F0;
             }
         }
 
+        .block1 {
+            .back {
+                button {
+                    > * { vertical-align: middle;}
+                    background-color: transparent;
+                    border: none;
+                    span { margin-left: 5px;}
+                    i {font-size: 1.6em;}
+                }
+            }
+        }
+
 
 
     }

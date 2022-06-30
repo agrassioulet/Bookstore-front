@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
+import { allIcons } from 'ngx-bootstrap-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,10 +14,11 @@ import { MATERIAL } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './tools/footer/footer.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { LoginComponent } from './pages/login/login.component';
   imports: [
     HttpClientModule,
     BrowserModule,
+    NgxBootstrapIconsModule.pick(allIcons),
     MATERIAL,
     FormsModule,
     ReactiveFormsModule,
@@ -38,7 +42,11 @@ import { LoginComponent } from './pages/login/login.component';
     NgbModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
