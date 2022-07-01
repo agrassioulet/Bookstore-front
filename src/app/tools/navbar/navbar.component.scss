@@ -1,16 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Aladin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
 
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 $marine-color: #000083;
 
-.focus-button {
-    border: 1px solid $marine-color !important;
-}
 
 a {
     text-decoration: none;
     transition-duration: 200ms;
     transition-property: all;
+
     &:hover {
         color: $marine-color;
     }
@@ -22,9 +25,9 @@ a {
 
 
 .nav-top {
-    border-bottom: solid 2px $marine-color;
     height: 70px;
     padding: 0 30px;
+    background-color: aliceblue;
 
     .nav-top-left {
 
@@ -35,7 +38,7 @@ a {
         }
 
         a.logo {
-            font-family: 'Aladin', cursive;
+            font-family: 'Convergence', sans-serif;
             font-size: 2.3em;
 
         }
@@ -49,24 +52,55 @@ a {
 
 
     .nav-top-right {
-        button {
+        .btn-container {
+
+            button {background-color: transparent; border: none;}
+
+            border: 2px solid transparent;
             background-color: transparent;
             margin: 0 6px;
-            padding: 5px;
-            outline: none;
-            border: none;
-            i {
+            width: 40px;
+            height: 40px;
+            @include flex-center;
+
+            button i {
                 font-size: 1.6em;
                 color: $marine-color;
 
             }
 
-            &:hover {
-                border: 1px solid $marine-color;
+            &.search-container:hover {
+                border: 2px solid $marine-color;
+            }
+
+            .cart-btn {
+                position: relative;
+    
+                > i {
+                    z-index: 1;
+                }
+    
+                .quantity-cart-container {
+                    position: absolute;
+                    left: 20px;
+                    bottom: 20px;
+                    z-index: 2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 18px;
+                    height: 18px;
+                    background-color: white;
+                    border-radius: 50%;
+                    border: 2px solid $marine-color;
+    
+                    .quantity-cart {font-size: 0.8em;}
+                }
+    
+    
             }
 
         }
-
 
         .user-container {
             position: relative;
@@ -76,10 +110,15 @@ a {
                 top: 130%;
                 right: 0;
                 position: absolute;
-                
-                &.logged-in {width: 150px;}
-                &.logged-out {width: 180px;}
-                
+
+                &.logged-in {
+                    width: 150px;
+                }
+
+                &.logged-out {
+                    width: 180px;
+                }
+
 
                 .arrow-dropdown {
                     font-size: 2em;
@@ -94,9 +133,10 @@ a {
                     background-color: rgb(246, 246, 246);
                     height: 40px;
                     border-left: 5px solid transparent;
+
                     &:hover {
                         border-left: 5px solid $marine-color;
-                        
+
                     }
                 }
             }
@@ -113,27 +153,29 @@ a {
     .nav-search {
         height: 110px;
         background-color: $marine-color;
-    
-        > * {
+
+        >* {
             margin: 0 15px;
         }
-    
+
         input {
             width: 650px;
             height: 52px;
             padding-left: 20px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
-    
+
         button {
             outline: none;
             border: none;
             background-color: transparent;
             color: white;
-    
-            span {margin-right: 5px;}
+
+            span {
+                margin-right: 5px;
+            }
         }
-        
+
     }
 
     .nav-categories {
@@ -147,12 +189,12 @@ a {
         background-color: white;
         border-bottom: 5px solid $marine-color;
 
-        > * {
+        >* {
             margin: 10px 0;
         }
 
 
-    
+
         // > * {
         //     flex-grow: 1;
         //     > :last-child {margin: 0;}
@@ -161,5 +203,3 @@ a {
 
 
 }
-
-

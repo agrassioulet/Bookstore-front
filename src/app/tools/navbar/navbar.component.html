@@ -1,16 +1,27 @@
 <div class="navbar-container">
 
-    <div class="nav-top bg-white d-flex align-items-center justify-content-between">
+    <div class="nav-top d-flex align-items-center justify-content-between">
         <div class="nav-top-left d-flex align-items-center">
-            <img src="../../../assets/images/logo.svg" alt="">
-            <a class="logo" routerLink=""><span>Au Bazar</span></a>
+            <img src="../../../assets/images/PeterM-Feather-2.svg" alt="">
+            <a class="logo" routerLink=""><span>Bookstore</span></a>
             <a routerLink="/product-list" class="font-size-1">Produits</a>
         </div>
         <div class="nav-top-right d-flex">
-            <button (click)="openSearch=!openSearch" [ngClass]="{'focus-button': openSearch == true}"><i
+            <div class="btn-container search-container">
+                <button class="search-btn" (click)="openSearch=!openSearch" [ngClass]="{'focus-button': openSearch == true}"><i
                     class="fa-solid fa-magnifying-glass"></i></button>
-            <button class=""><i class="fa-solid fa-cart-shopping"></i></button>
-            <div class="user-container">
+            </div>
+
+            <div class="btn-container">
+                <button class="cart-btn">
+                    <div *ngIf="isUserLogin " class="quantity-cart-container">
+                        <span class="quantity-cart">{{quantityCart}}</span>
+                    </div>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+
+            <div class="btn-container user-container">
                 <button (click)="openUserPanel=!openUserPanel" [ngClass]="{'focus-button' : openUserPanel}"><i
                         class="fa-solid fa-user"></i></button>
 

@@ -22,7 +22,7 @@ export class ProductService {
   }
 
   public getProductById(id: string): Observable<any> {
-    return this.httpClient.get<any>(this.url + '/get-product-by-id' + '/' + id);
+    return this.httpClient.get<{status: number, data: any, message: string}>(this.url + '/get-product-by-id' + '/' + id);
   }
 
   public getProductsByCategory(category: string): Observable<any> {
@@ -31,6 +31,33 @@ export class ProductService {
 
   public createProduct(product: any): Observable<void> {
     return this.httpClient.post<void>(this.url, product)
+  }
+
+
+  // Methods for cart
+  public addProductToCart(product: IProduct, quantity: number) {
+    return this.httpClient.post<{status: number, data: any}>(this.url + '/add-product-to-cart', 
+    { product: product, quantity: quantity })
+  }
+
+  public getCart() {
+    return this.httpClient.get<any>(this.url + '/get-cart');
+  }
+
+  public updateProductCart(productCart: any) {
+    return this.httpClient.post<any>(this.url + '/update-product-cart', productCart);
+  }
+
+  public orderCart() {
+    return this.httpClient.get<{status: Number, data: any}>(this.url + '/order-cart');
+  }
+
+  public getAllCarts() {
+    return this.httpClient.get<{status: Number, data: any}>(this.url + '/get-all-sent-carts');
+  }
+
+  public getQuantityCart() {
+    return this.httpClient.get<{status: Number, data: any, message: string}>(this.url + '/get-quantity-cart');
   }
 
 }

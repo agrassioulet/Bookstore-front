@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   openUserPanel: boolean = false;
   public isUserLogin = false
   public user: IUser = UserOperators.initUser()
+  public quantityCart = 0
 
   constructor(
     private productService: ProductService,
@@ -31,13 +32,20 @@ export class NavbarComponent implements OnInit {
     })
 
     if(this.auth.isTokenSaved()) {
+      // Get user informations
       this.userService.getUserInfos().subscribe(result => {
         console.log(result)
         if(result.status == 1) {
           this.isUserLogin = true
           this.user = result.data
         }
+      })
 
+      // Get quantity in cart
+      this.productService.getQuantityCart().subscribe(result => {
+        if(result.status == 1) {
+          this.quantityCart = result.data
+        }
       })
     }
   }

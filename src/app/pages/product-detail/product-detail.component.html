@@ -23,11 +23,11 @@
 
                 <div class="block1">
 
-                    <p class="title">Titre du livre</p>
+                    <p class="title">{{product.title}}</p>
                     <p class="contributor"><img src="../../../assets/images/1595588041Pen.svg">Par
-                        <span class="contributor-name">Alison A. Armstrong</span>
+                        <span class="contributor-name">{{ product.contributor.name }}</span>
                     </p>
-                    <button class="add-cart-b">Ajouter au panier</button>
+                    <button class="add-cart-b" (click)="addToCart(product)">Ajouter au panier</button>
                     <p class="social-share">
                         <button class="hide-button-style"><i class="fa-brands fa-twitter"></i></button>
                         <button class="hide-button-style"><i class="fa-brands fa-facebook-f"></i></button>
@@ -35,6 +35,7 @@
                     </p>
                     <p class="time-delivery"><i class="fa-solid fa-truck"></i>Délai de livraison prévu entre 3 et 5
                         jours</p>
+                    <p class="price">EUR {{product.price}}</p>
 
 
                 </div>
@@ -47,31 +48,38 @@
         <div class="block2">
 
 
-                <p class="description">The Community Justice Center Story is written in perspective of the author and
-                    his experiences with restorative justice.</p>
+            <p class="description">The Community Justice Center Story is written in perspective of the author and
+                his experiences with restorative justice.</p>
 
 
-                <div class="block3">
+            <div class="block3">
 
-                    <div class="details-block">
-                        <p class="title">Détails</p>
-                        <p class="text"><span class="prop-text">Date de publication</span><span class="value-text">9 juil. 2014</span></p>
-                        <p class="text"><span class="prop-text">Langue</span><span class="value-text">English</span></p>
-                        <p class="text"><span class="prop-text">ISBN</span><span class="value-text">9</span></p>
-                        <p class="text"><span class="prop-text">Catégorie</span><span class="value-text">Parents & famille</span></p>
-                        <p class="text"><span class="prop-text">Copyright</span><span class="value-text">Tous droits réservés - Licence de copyright standard</span></p>
-                        <p class="text"><span class="prop-text">Contributeurs</span><span class="value-text">James Jones</span></p>
-
-                    </div>
-                    <div class="properties-block">
-                        <p class="title">Caractéristiques</p>
-                        <p class="text"><span class="prop-text">Pages</span><span class="value-text">78</span></p>
-                        <p class="text"><span class="prop-text">Reliure</span><span class="value-text">Livre à couverture souple</span></p>
-                        <p class="text"><span class="prop-text">Couleur de l’intérieur</span><span class="value-text">Noir et blanc</span></p>
-                        <p class="text"><span class="prop-text">Dimensions</span><span class="value-text">140 x 216 mm</span></p>
-                    </div>
+                <div class="details-block">
+                    <p class="title">Détails</p>
+                    <p class="text"><span class="prop-text">Date de publication</span><span class="value-text">9 juil.
+                            2014</span></p>
+                    <p class="text"><span class="prop-text">Langue</span><span class="value-text">English</span></p>
+                    <p class="text"><span class="prop-text">ISBN</span><span class="value-text">9</span></p>
+                    <p class="text"><span class="prop-text">Catégorie</span><span class="value-text">Parents &
+                            famille</span></p>
+                    <p class="text"><span class="prop-text">Copyright</span><span class="value-text">Tous droits
+                            réservés - Licence de copyright standard</span></p>
+                    <p class="text"><span class="prop-text">Contributeurs</span><span class="value-text">James
+                            Jones</span></p>
 
                 </div>
+                <div class="properties-block">
+                    <p class="title">Caractéristiques</p>
+                    <p class="text"><span class="prop-text">Pages</span><span class="value-text">78</span></p>
+                    <p class="text"><span class="prop-text">Reliure</span><span class="value-text">Livre à couverture
+                            souple</span></p>
+                    <p class="text"><span class="prop-text">Couleur de l’intérieur</span><span class="value-text">Noir
+                            et blanc</span></p>
+                    <p class="text"><span class="prop-text">Dimensions</span><span class="value-text">140 x 216
+                            mm</span></p>
+                </div>
+
+            </div>
 
         </div>
 
