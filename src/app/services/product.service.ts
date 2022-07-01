@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ICategory } from '../models/category';
 import { IProduct } from '../models/product';
+import { IProductCart } from '../models/product_cart';
 
 @Injectable({
   providedIn: 'root'
@@ -41,11 +42,11 @@ export class ProductService {
   }
 
   public getCart() {
-    return this.httpClient.get<any>(this.url + '/get-cart');
+    return this.httpClient.get<{status: Number, data: any, message: string}>(this.url + '/get-cart');
   }
 
-  public updateProductCart(productCart: any) {
-    return this.httpClient.post<any>(this.url + '/update-product-cart', productCart);
+  public updateProductCart(productCart: IProductCart) {
+    return this.httpClient.post<{status: number, data: any, message: string }>(this.url + '/update-product-cart', productCart);
   }
 
   public orderCart() {
@@ -58,6 +59,10 @@ export class ProductService {
 
   public getQuantityCart() {
     return this.httpClient.get<{status: Number, data: any, message: string}>(this.url + '/get-quantity-cart');
+  }
+
+  public removeProductCart(productCart: IProductCart) {
+    return this.httpClient.post<{status: Number, data: any, message: string}>(this.url + '/remove-product-cart', productCart);
   }
 
 }

@@ -26,10 +26,12 @@ a {
 
 .nav-top {
     height: 70px;
-    padding: 0 30px;
+    padding: 40px 30px;
     background-color: aliceblue;
 
     .nav-top-left {
+        padding-left: 80px;
+        position: relative;
 
         a {
             vertical-align: baseline;
@@ -44,9 +46,10 @@ a {
         }
 
         img {
-            width: 50px;
-            position: relative;
-            bottom: 3px;
+            width: 45px;
+            position: absolute;
+            bottom: -1px;
+            left: 37px;
         }
     }
 

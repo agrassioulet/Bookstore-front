@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+
+<div class="cart-container">
+
+    <div class="cart">
+
+        <p class="title">Panier</p>
+
+        <div class="product-cart" *ngFor="let productCart of cart.product_cart">
+            <div class="img-container"><img src="https://picsum.photos/200/300"></div>
+            <div class="logo"><i class="fa-solid fa-book"></i></div>
+            <div class="price-product">EUR 19.90</div>
+            <div class="quantity">
+                <div><i class="fa-solid fa-minus"></i></div>
+                <span class="quantity-number">6</span>
+                <div><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="price-total-product">EUR 56.30</div>
+            <button (click)="removeProductCart(productCart)" class="remove-btn hide-button-style">Supprimer</button>
+        </div>
+
+
+    </div>
+
+</div>

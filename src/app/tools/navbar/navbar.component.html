@@ -1,7 +1,7 @@
 <div class="navbar-container">
 
     <div class="nav-top d-flex align-items-center justify-content-between">
-        <div class="nav-top-left d-flex align-items-center">
+        <div class="nav-top-left d-flex align-items-baseline">
             <img src="../../../assets/images/PeterM-Feather-2.svg" alt="">
             <a class="logo" routerLink=""><span>Bookstore</span></a>
             <a routerLink="/product-list" class="font-size-1">Produits</a>
@@ -13,7 +13,7 @@
             </div>
 
             <div class="btn-container">
-                <button class="cart-btn">
+                <button class="cart-btn" routerLink="/cart">
                     <div *ngIf="isUserLogin " class="quantity-cart-container">
                         <span class="quantity-cart">{{quantityCart}}</span>
                     </div>
