@@ -20,6 +20,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
 import { CartComponent } from './pages/cart/cart.component';
+import { ContactDeliveryComponent } from './pages/contact-delivery/contact-delivery.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CartComponent } from './pages/cart/cart.component';
     ProductDetailComponent,
     RegisterComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    ContactDeliveryComponent
   ],
   imports: [
     HttpClientModule,

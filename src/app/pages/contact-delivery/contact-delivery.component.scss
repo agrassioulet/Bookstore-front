@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
+$marine-color: #000083;
+$blue-sky: #22B5F0;
+$light-grey: #dedede;
+
+input {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: 1px solid $light-grey;
+    padding-left: 20px;
+    font-family: 'ABeeZee', sans-serif;
+
+    &:focus {border: 2px solid $marine-color;}
+}
+
+.contact-delivery-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 500px;
+
+    .contact-delivery {
+        margin: 0 100px;
+        height: 100%;
+        > .title {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.3em;
+            color: $marine-color;
+            font-weight: 700;
+            img {
+                width: 50px;
+            }
+        }
+
+
+        .email-block {
+            margin-top: 50px;
+
+            .title {
+                display: flex;
+                align-items: baseline;
+
+                span {
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    color: $marine-color;
+                    padding: 0 20px;
+                }
+
+                .line {
+                    border-bottom: 1px solid $light-grey;
+                    flex-grow: 1;
+                }
+
+
+            }
+
+            .email-label {
+                font-size: 0.8em;
+            }
+
+            .email-input {}
+
+            .email-marketing {
+                margin-top: 10px;
+                input {
+                    margin-right: 5px;
+                    width: 15px;
+                    height: 15px;
+                }
+                span {
+
+                }
+            }
+
+        }
+
+    }
+
+    .summary-order {
+        background-color: aliceblue;
+        height: 100%;
+
+    }
+
+}

@@ -1,0 +1,57 @@
+<div class="contact-delivery-container">
+
+
+
+    <div class="contact-delivery">
+
+        <div class="title">
+            <img src="../../../assets/images/PeterM-Feather-2.svg">
+            <span>Bookstore</span>
+        </div>
+
+        <form action="" [formGroup]="contactDeliveryForm" #form="ngForm">
+
+
+            <div class="email-block">
+                <div class="title">
+                    <div class="line"></div>
+                    <span>Informations de contact</span>
+                    <div class="line"></div>
+                </div>
+
+                <div class="email-label">E-MAIL</div>
+                <input class="email-input" type="text" value="alexandre.grassioulet@hotmail.fr">
+                <div class="email-marketing">
+                    <input type="checkbox" name="email-marketing-checkbox" id="email-marketing-checkbox">
+                    <span>Tenez-moi au courant des nouveautés et des offres exclusives</span>
+                </div>
+
+            </div>
+
+            <div class="adress-delivery-block">
+
+            </div>
+
+            <div class="field" id="username">
+                <input type="text" id="username-input" placeholder='' formControlName="username">
+                <label for="username-input">Pseudo *</label>
+            </div>
+
+            <div class="field" id="password">
+                <input type="text" id="password-input" placeholder='' formControlName="password">
+                <label for="password-input">Mot de passe *</label>
+            </div>
+
+        </form>
+
+
+        
+
+
+    </div>
+
+
+    <div class="summary-order">
+        <p>Récapitulatif</p>
+    </div>
+</div>
