@@ -19,8 +19,11 @@
                     <div class="line"></div>
                 </div>
 
-                <div class="email-label">E-MAIL</div>
-                <input class="email-input" type="text" value="alexandre.grassioulet@hotmail.fr">
+                <div class="field">
+                    <label class="email-label">E-MAIL</label>
+                    <input class="email-input" type="text" value="alexandre.grassioulet@hotmail.fr">
+                </div>
+
                 <div class="email-marketing">
                     <input type="checkbox" name="email-marketing-checkbox" id="email-marketing-checkbox">
                     <span>Tenez-moi au courant des nouveautés et des offres exclusives</span>
@@ -29,23 +32,77 @@
             </div>
 
             <div class="adress-delivery-block">
+                <div class="title">
+                    <div class="line"></div>
+                    <span>Adresse de livraison</span>
+                    <div class="line"></div>
+                </div>
 
-            </div>
+                <div class="field">
+                    <label for="country">PAYS</label>
+                    <div class="select-container">
+                        <select name="country" id="country">
+                            <option value="france">France</option>
+                            <option value="spain">Espagne</option>
+                            <option value="italy">Italie</option>
+                        </select>
 
-            <div class="field" id="username">
-                <input type="text" id="username-input" placeholder='' formControlName="username">
-                <label for="username-input">Pseudo *</label>
-            </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
 
-            <div class="field" id="password">
-                <input type="text" id="password-input" placeholder='' formControlName="password">
-                <label for="password-input">Mot de passe *</label>
+                </div>
+
+                <div class="field">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" placeholder="Prénom">
+                </div>
+
+                <div class="field">
+                    <label for="lastname">Nom</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Nom">
+                </div>
+
+                <div class="field">
+                    <label for="company">Entreprise</label>
+                    <input type="text" name="company" id="company" placeholder="Entreprise">
+                </div>
+
+                <div class="field">
+                    <label for="adress">Adresse</label>
+                    <input type="text" name="adress" id="adress" placeholder="Adresse">
+                </div>
+
+                <div class="field">
+                    <label for="postal-code">Code postal</label>
+                    <input type="text" name="postal-code" id="postal-code" placeholder="Code postal">
+                </div>
+
+                <div class="field">
+                    <label for="adress">Ville</label>
+                    <input type="text" name="city" id="city" placeholder="Ville">
+                </div>
+
+                <div class="field">
+                    <label for="phone-number">Téléphone</label>
+                    <input type="text" name="phone-number" id="phone-number" placeholder="Téléphone">
+                </div>
+
+                <div class="save-delivery-infos">
+                    <input type="checkbox" name="save-delivery-infos-checkbox" id="save-delivery-infos-checkbox">
+                    <span>Enregistrer ces informations pour une prochaine commande</span>
+                </div>
+
+
+                <div class="actions">
+                    <button class="continue-payment-btn" routerLink="/payment">Continuer vers le paiement</button>
+                </div>
+
             </div>
 
         </form>
 
 
-        
+
 
 
     </div>

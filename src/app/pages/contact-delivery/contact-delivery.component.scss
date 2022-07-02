@@ -3,17 +3,75 @@ $marine-color: #000083;
 $blue-sky: #22B5F0;
 $light-grey: #dedede;
 
-input {
-    width: 100%;
-    height: 50px;
-    outline: none;
-    border: 1px solid $light-grey;
-    padding-left: 20px;
-    font-family: 'ABeeZee', sans-serif;
 
-    &:focus {border: 2px solid $marine-color;}
+// General properties
+.field {
+    margin-top: 15px;
+
+    label {
+        font-family: 'Varela Round', sans-serif;
+        font-size: 0.7em;
+        color: black; //#4545b9;
+        text-transform: uppercase;
+    }
+
+    input {
+        color: black;
+        font-size: 1em;
+
+        &::placeholder {
+            color: grey;
+            font-weight: 300;
+        }
+
+        width: 100%;
+        height: 50px;
+        outline: none;
+        border: 1px solid $light-grey;
+        padding-left: 20px;
+        font-family: 'ABeeZee',
+        sans-serif;
+
+        &:focus {
+            border: 2px solid $marine-color;
+        }
+    }
+
+    .select-container {
+        position: relative;
+
+        select {
+            appearance: none;
+            width: 100%;
+            font-family: 'ABeeZee', sans-serif;
+            height: 50px;
+            outline: none;
+            border: 1px solid $light-grey;
+            padding-left: 20px;
+            font-family: 'ABeeZee', sans-serif;
+            background-color: transparent;
+        }
+
+        i {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+
+        option {
+            background-color: white;
+            font-family: 'ABeeZee', sans-serif;
+            color: $marine-color;
+            width: 100%;
+        }
+
+    }
+
 }
 
+
+// Other properties
 .contact-delivery-container {
     height: 100vh;
     display: grid;
@@ -22,7 +80,8 @@ input {
     .contact-delivery {
         margin: 0 100px;
         height: 100%;
-        > .title {
+
+        >.title {
             margin-top: 80px;
             display: flex;
             justify-content: center;
@@ -30,13 +89,15 @@ input {
             font-size: 2.3em;
             color: $marine-color;
             font-weight: 700;
+
             img {
                 width: 50px;
             }
         }
 
 
-        .email-block {
+        .email-block,
+        .adress-delivery-block {
             margin-top: 50px;
 
             .title {
@@ -58,25 +119,58 @@ input {
 
             }
 
-            .email-label {
-                font-size: 0.8em;
-            }
-
-            .email-input {}
-
             .email-marketing {
                 margin-top: 10px;
+
                 input {
                     margin-right: 5px;
                     width: 15px;
                     height: 15px;
                 }
-                span {
 
-                }
+                span {}
             }
 
         }
+
+
+        .adress-delivery-block {
+
+            .save-delivery-infos {
+                margin-top: 10px;
+
+                input {
+                    margin-right: 5px;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+
+            .actions {
+                margin: 50px 0;
+                display: flex;
+                justify-content: end;
+
+                button {
+                    font-size: 1.4em;
+                    padding: 15px 30px;
+                    border: none;
+                    border-radius: 3px;
+                    color: $marine-color;
+                    background-color: white;
+                    border: 2px solid $marine-color;
+
+                    &:hover {
+                        background-color: aliceblue;
+                    }
+                }
+            }
+
+
+
+        }
+
+
 
     }
 
