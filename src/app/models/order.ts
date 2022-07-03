@@ -1,15 +1,15 @@
 import { IProductCart } from "./product_cart";
 
-export interface ICart {
+export interface IOrder {
     status: String;
     updateAt: Date;
     active: boolean;
     product_cart: IProductCart[];
 }
 
-export const CartOperators = {
+export const OrderOperators = {
 
-    initCart(): ICart {
+    initCart(): IOrder {
         return {
             status: '',
             updateAt: new Date(),

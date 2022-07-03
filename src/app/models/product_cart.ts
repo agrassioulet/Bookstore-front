@@ -1,8 +1,8 @@
-import { ICart } from "./cart";
+import { IOrder } from "./order";
 import { IProduct } from "./product";
 
 export interface IProductCart {
-    cart: ICart;
+    order: IOrder;
     product: IProduct;
     quantity: number;
 }

@@ -25,17 +25,29 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log('reset products')
+    this.products = []
+
+
     var code = this.activatedRoute.snapshot.paramMap.get("category_code")
     this.categoryCode = code ?? ''
     console.log('code category: ' + code)
 
     this.productService.getAllProducts().subscribe(result => {
+      console.log('getAllProducts : ', result)
       this.products = result.data
       if(this.categoryCode != '') {
         console.log('on filter')
         this.products = this.products.filter(product => product.category.code == this.categoryCode)
       }
-      console.log(this.products)
+
+      this.products.forEach(product => {
+        if(product.category == null) {
+          console.log('product with null category : ', product)
+
+        }
+      })
+      
     })
 
     this.productService.getAllCategories().subscribe(result => {

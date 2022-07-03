@@ -20,6 +20,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     var product_id = this.activatedRoute.snapshot.paramMap.get("product_id") ?? ''
     this.productService.getProductById(product_id).subscribe(result => {
+      console.log('get product : ', result)
 
       if(result.status == 1) {
         this.product = result.data
@@ -29,8 +30,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(product: IProduct) {
+    console.log('add to cart method')
     var quantity = 1
     this.productService.addProductToCart(product, quantity).subscribe(result => {
+      console.log('add product to cart : ', result)
       if(result.status == 1) {
         console.log(result)
         this.router.navigate(['']);

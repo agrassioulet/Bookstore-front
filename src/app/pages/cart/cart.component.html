@@ -7,7 +7,7 @@
 
         <p class="title">Panier</p>
 
-        <div class="product-cart-container" *ngFor="let productCart of cart.product_cart">
+        <div class="product-cart-container" *ngFor="let productCart of order.product_cart">
 
             <div class="d-flex justify-content-between align-items-center">
                 <div class="title">{{ productCart.product.title }}</div>
@@ -28,14 +28,14 @@
                     <span class="quantity-number">{{productCart.quantity}}</span>
                     <div (click)="increaseQuantity(productCart)"><i class="fa-solid fa-plus"></i></div>
                 </div>
-                <div class="price-total-product">EUR {{productCart.product.price * productCart.quantity}}</div>
+                <div class="price-total-product">EUR {{productCart.product.price * productCart.quantity | number : '1.2-2'}}</div>
                 <button (click)="removeProductCart(productCart)" class="remove-btn hide-button-style">Supprimer</button>
             </div>
         </div>
 
         <div class="subtotal">
             <span class="label">Sous-total de la commande</span>
-            <span class="value">EUR 290.40</span>
+            <span class="value">EUR {{subtotal | number : '1.2-2'}}</span>
         </div>
 
         <div class="actions">

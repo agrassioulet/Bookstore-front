@@ -4,9 +4,9 @@
 
     <div class="contact-delivery">
 
-        <div class="title">
+        <div class="title cursor-pointer" routerLink="">
             <img src="../../../assets/images/PeterM-Feather-2.svg">
-            <span>Bookstore</span>
+            <span >Bookstore</span>
         </div>
 
         <form action="" [formGroup]="contactDeliveryForm" #form="ngForm">
@@ -41,7 +41,7 @@
                 <div class="field">
                     <label for="country">PAYS</label>
                     <div class="select-container">
-                        <select name="country" id="country">
+                        <select name="country" id="country" formControlName="country">
                             <option value="france">France</option>
                             <option value="spain">Espagne</option>
                             <option value="italy">Italie</option>
@@ -54,37 +54,37 @@
 
                 <div class="field">
                     <label for="firstname">Prénom</label>
-                    <input type="text" placeholder="Prénom">
+                    <input type="text" placeholder="Prénom" formControlName="firstname">
                 </div>
 
                 <div class="field">
                     <label for="lastname">Nom</label>
-                    <input type="text" name="lastname" id="lastname" placeholder="Nom">
+                    <input type="text" name="lastname" id="lastname" placeholder="Nom" formControlName="lastname">
                 </div>
 
                 <div class="field">
                     <label for="company">Entreprise</label>
-                    <input type="text" name="company" id="company" placeholder="Entreprise">
+                    <input type="text" name="company" id="company" placeholder="Entreprise" formControlName="company">
                 </div>
 
                 <div class="field">
                     <label for="adress">Adresse</label>
-                    <input type="text" name="adress" id="adress" placeholder="Adresse">
+                    <input type="text" name="adress" id="adress" placeholder="Adresse" formControlName="adress">
                 </div>
 
                 <div class="field">
                     <label for="postal-code">Code postal</label>
-                    <input type="text" name="postal-code" id="postal-code" placeholder="Code postal">
+                    <input type="text" name="postal-code" id="postal-code" placeholder="Code postal" formControlName="postalCode">
                 </div>
 
                 <div class="field">
                     <label for="adress">Ville</label>
-                    <input type="text" name="city" id="city" placeholder="Ville">
+                    <input type="text" name="city" id="city" placeholder="Ville" formControlName="city">
                 </div>
 
                 <div class="field">
                     <label for="phone-number">Téléphone</label>
-                    <input type="text" name="phone-number" id="phone-number" placeholder="Téléphone">
+                    <input type="text" name="phone-number" id="phone-number" placeholder="Téléphone" formControlName="phoneNumber">
                 </div>
 
                 <div class="save-delivery-infos">
@@ -92,9 +92,11 @@
                     <span>Enregistrer ces informations pour une prochaine commande</span>
                 </div>
 
+                <div class="errors text-warning my-3">{{message}}</div>
+
 
                 <div class="actions">
-                    <button class="continue-payment-btn" routerLink="/payment">Continuer vers le paiement</button>
+                    <button class="continue-payment-btn" (click)="saveDeliveryContact()">Continuer vers le paiement</button>
                 </div>
 
             </div>
@@ -111,28 +113,16 @@
     <div class="summary-order">
         <p class="title">Récapitulatif de la commande</p>
 
-        <div class="product-cart">
+        <div class="product-cart" *ngFor="let productCart of order.product_cart">
             <div class="img-container">
                 <div class="quantity-product-container">
-                    <span class="quantity-product">2</span>
+                    <span class="quantity-product">{{productCart.quantity}}</span>
                 </div>
                 
                 <img src="https://picsum.photos/200/300">
             </div>
             <div class="logo"><i class="fa-solid fa-book"></i></div>
-            <div class="price-total-product">13.03 €</div>
-        </div>
-
-        <div class="product-cart">
-            <div class="img-container">
-                <div class="quantity-product-container">
-                    <span class="quantity-product">2</span>
-                </div>
-                
-                <img src="https://picsum.photos/200/300">
-            </div>
-            <div class="logo"><i class="fa-solid fa-book"></i></div>
-            <div class="price-total-product">13.03 €</div>
+            <div class="price-total-product">{{productCart.product.price}} €</div>
         </div>
 
 

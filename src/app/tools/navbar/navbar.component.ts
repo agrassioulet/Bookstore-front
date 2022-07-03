@@ -3,6 +3,7 @@ import { ICategory } from 'src/app/models/category';
 import { IUser, UserOperators } from 'src/app/models/user';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import { ProductService } from 'src/app/services/product.service';
+import { ReloadService } from 'src/app/services/reload.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -22,15 +23,30 @@ export class NavbarComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private auth: AuthentificationService,
-    private userService: UserService
+    private userService: UserService,
+    private reloadService: ReloadService
   ) { }
 
   ngOnInit(): void {
-    this.productService.getAllCategories().subscribe(result => {
-      this.categories = result.data
-      console.log(result)
-    })
 
+    this.initUserInfos()
+    this.initCategories()
+
+
+    this.reloadService.Refreshrequired.subscribe(response=>{
+      this.initUserInfos();
+    });
+
+  }
+
+  logout() {
+    this.auth.clearStorage()
+    this.isUserLogin = false
+    this.user = UserOperators.initUser()
+    this.openUserPanel = false
+  }
+
+  initUserInfos() {
     if(this.auth.isTokenSaved()) {
       // Get user informations
       this.userService.getUserInfos().subscribe(result => {
@@ -50,11 +66,13 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  logout() {
-    this.auth.clearStorage()
-    this.isUserLogin = false
-    this.user = UserOperators.initUser()
-    this.openUserPanel = false
+  initCategories() {
+    
+    this.productService.getAllCategories().subscribe(result => {
+      this.categories = result.data
+      console.log(result)
+    })
+
   }
 
 }

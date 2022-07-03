@@ -81,7 +81,7 @@ $light-grey: #dedede;
         margin: 0 100px;
         height: 100%;
 
-        >.title {
+        > .title {
             margin-top: 80px;
             display: flex;
             justify-content: center;
@@ -92,6 +92,7 @@ $light-grey: #dedede;
 
             img {
                 width: 50px;
+                margin-right: 10px;
             }
         }
 
@@ -128,7 +129,6 @@ $light-grey: #dedede;
                     height: 15px;
                 }
 
-                span {}
             }
 
         }
