@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
+$marine-color: #000083;
+$blue-sky: #22B5F0;
+$light-grey: #dedede;
+
+button {
+    font-size: 1.2em;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 3px
+}
+
+
+.account {
+    margin-top: 50px;
+    padding-left: 15%;
+    width: 70%;
+
+    > .title {
+        font-size: 2em;
+    }
+
+
+    .user-contact {
+        margin-top: 25px;
+        margin-bottom: 30px;
+
+        .title {
+            font-size: 1.5em;
+        }
+
+        div {
+            padding: 20px 40px;
+            background-color: rgb(245, 245, 245);
+
+            .user-name {
+                font-family: 'ABeeZee', sans-serif;
+                font-size: 1.4em;
+                font-weight: bold;
+
+            }
+
+            .user-email {
+                font-size: 1.2em;
+            }
+
+            .user-password {
+                font-size: 1.2em;
+            }
+
+            button {
+                color: $marine-color;
+                background-color: $blue-sky;
+            }
+        }
+
+    }
+
+    .user-orders {
+        margin-top: 25px;
+        margin-bottom: 30px;
+
+        .title {
+            font-size: 1.5em;
+        }
+
+        div {
+            table {
+                font-weight: normal;
+                width: 100%;
+
+                th, td {
+                    padding: 10px;
+                }
+
+
+                th {
+                    font-family: 'ABeeZee', sans-serif;
+                    font-size: 1em;
+                    background-color: rgb(0, 0, 84);
+                    color: white;
+
+                }
+
+                tr td:last-child {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+    
+                tr:nth-child(even) {
+                    background-color: #CED4E5;
+                }
+    
+                tr:nth-child(odd) {
+                    background-color: #E8EBF5;
+                }
+
+            }
+
+
+        }
+
+
+    }
+}

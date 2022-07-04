@@ -1,4 +1,4 @@
-export interface IOrder {
+export interface IDeliveryContact {
     adress: String;
     city: String;
     company: String;
@@ -7,4 +7,20 @@ export interface IOrder {
     lastname: String;
     phoneNumber: String;
     postalCode: String;
+}
+
+export const DeliveryContactOperator = {
+
+    initDeliveryContact(): IDeliveryContact {
+        return {
+            adress: '',
+            city: '',
+            company: '',
+            country: '',
+            firstname: '',
+            lastname: '',
+            phoneNumber: '',
+            postalCode: ''
+        }
+    }
 }

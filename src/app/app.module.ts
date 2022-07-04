@@ -24,6 +24,8 @@ import { ContactDeliveryComponent } from './pages/contact-delivery/contact-deliv
 import { PaymentComponent } from './pages/payment/payment.component';
 import { SuccessComponent } from './pages/payment/success/success.component';
 import { FailureComponent } from './pages/payment/failure/failure.component';
+import { AccountComponent } from './pages/account/account/account.component';
+import { AccountUpdateComponent } from './pages/account/account-update/account-update.component';
 
 
 
@@ -41,7 +43,9 @@ import { FailureComponent } from './pages/payment/failure/failure.component';
     ContactDeliveryComponent,
     PaymentComponent,
     SuccessComponent,
-    FailureComponent
+    FailureComponent,
+    AccountComponent,
+    AccountUpdateComponent
   ],
   imports: [
     HttpClientModule,

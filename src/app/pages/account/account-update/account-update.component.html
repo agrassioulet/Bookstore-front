@@ -1,0 +1,50 @@
+<div class="account-update-container">
+
+
+    <div class="box">
+
+        <div class="img-container"><img src="../../../assets/images/PeterM-Feather-2.svg"></div>
+
+        <p class="title">Informations de compte</p>
+
+        <form action="" [formGroup]="userForm" #form="ngForm">
+
+            <div class="field" id="lastname" >
+                <input type="text" id="lastname-input" placeholder='' formControlName="lastname" [(ngModel)]="user.lastname">
+                <label for="lastname-input">Nom *</label>
+            </div>
+
+            <div class="field" id="firstname" >
+                <input type="text" id="firstname-input" placeholder='' formControlName="firstname" [(ngModel)]="user.firstname">
+                <label for="firstname-input">Prénom *</label>
+            </div>
+
+            <div class="field" id="email" >
+                <input type="text" id="email-input" placeholder='' formControlName="email" [(ngModel)]="user.email">
+                <label for="email-input">Email *</label>
+            </div>
+
+            <div class="field" id="username" >
+                <input type="text" id="username-input" placeholder='' formControlName="username" [(ngModel)]="user.username">
+                <label for="username-input">Pseudo *</label>
+            </div>
+
+            <button (click)="saveUserData()" class="subscribe-btn">Mettre à jour</button>
+
+            <div class="errors">
+                <div *ngFor="let error of errorsDisplay">{{error}}</div>
+            </div>
+
+            <p>{{message}}</p>
+        </form>
+
+        <div class="block1">
+            <div class="back">
+                <button routerLink="/account"><i class="fa-solid fa-circle-left"></i><span>Retour</span></button>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IOrder, OrderOperators } from 'src/app/models/order';
+import { IOrder, OrderOperator } from 'src/app/models/order';
 import { ICategory } from 'src/app/models/category';
 import { IProductCart } from 'src/app/models/product_cart';
 import { AuthentificationService } from 'src/app/services/authentification.service';
@@ -13,7 +13,7 @@ import { ReloadService } from 'src/app/services/reload.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  public order: IOrder = OrderOperators.initCart();
+  public order: IOrder = OrderOperator.initOrder();
   public subtotal: number = 0
 
   constructor(

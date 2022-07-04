@@ -1,15 +1,17 @@
+import { IDeliveryContact } from "./delivery_contact";
 import { IProductCart } from "./product_cart";
 
 export interface IOrder {
+    delivery_contact?: IDeliveryContact
     status: String;
     updateAt: Date;
     active: boolean;
-    product_cart: IProductCart[];
+    product_cart?: IProductCart[];
 }
 
-export const OrderOperators = {
+export const OrderOperator = {
 
-    initCart(): IOrder {
+    initOrder(): IOrder {
         return {
             status: '',
             updateAt: new Date(),
