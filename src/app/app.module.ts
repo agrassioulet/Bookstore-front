@@ -22,6 +22,10 @@ import { TokenInterceptorService } from './services/interceptors/token-intercept
 import { CartComponent } from './pages/cart/cart.component';
 import { ContactDeliveryComponent } from './pages/contact-delivery/contact-delivery.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { SuccessComponent } from './pages/payment/success/success.component';
+import { FailureComponent } from './pages/payment/failure/failure.component';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import { PaymentComponent } from './pages/payment/payment.component';
     LoginComponent,
     CartComponent,
     ContactDeliveryComponent,
-    PaymentComponent
+    PaymentComponent,
+    SuccessComponent,
+    FailureComponent
   ],
   imports: [
     HttpClientModule,

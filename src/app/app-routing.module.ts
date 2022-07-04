@@ -4,6 +4,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ContactDeliveryComponent } from './pages/contact-delivery/contact-delivery.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { FailureComponent } from './pages/payment/failure/failure.component';
+import { SuccessComponent } from './pages/payment/success/success.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
   {path: 'contact-delivery', component: ContactDeliveryComponent},
-  {path: 'payment', component: ContactDeliveryComponent},
+  {path: 'payment/success', component: SuccessComponent},
+  {path: 'payment/failure', component: FailureComponent},
+
 
 ];
 

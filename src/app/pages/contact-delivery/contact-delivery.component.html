@@ -6,7 +6,7 @@
 
         <div class="title cursor-pointer" routerLink="">
             <img src="../../../assets/images/PeterM-Feather-2.svg">
-            <span >Bookstore</span>
+            <span>Bookstore</span>
         </div>
 
         <form action="" [formGroup]="contactDeliveryForm" #form="ngForm">
@@ -74,7 +74,8 @@
 
                 <div class="field">
                     <label for="postal-code">Code postal</label>
-                    <input type="text" name="postal-code" id="postal-code" placeholder="Code postal" formControlName="postalCode">
+                    <input type="text" name="postal-code" id="postal-code" placeholder="Code postal"
+                        formControlName="postalCode">
                 </div>
 
                 <div class="field">
@@ -84,11 +85,13 @@
 
                 <div class="field">
                     <label for="phone-number">Téléphone</label>
-                    <input type="text" name="phone-number" id="phone-number" placeholder="Téléphone" formControlName="phoneNumber">
+                    <input type="text" name="phone-number" id="phone-number" placeholder="Téléphone"
+                        formControlName="phoneNumber">
                 </div>
 
                 <div class="save-delivery-infos">
-                    <input type="checkbox" name="save-delivery-infos-checkbox" id="save-delivery-infos-checkbox">
+                    <input type="checkbox" name="save-delivery-infos-checkbox" id="save-delivery-infos-checkbox"
+                        formControlName="saveDeliveryData">
                     <span>Enregistrer ces informations pour une prochaine commande</span>
                 </div>
 
@@ -96,7 +99,12 @@
 
 
                 <div class="actions">
-                    <button class="continue-payment-btn" (click)="saveDeliveryContact()">Continuer vers le paiement</button>
+                    <div>
+                        <button (click)="initializePayment(5)">Paymant of $5</button>
+                    </div>
+
+                    <button class="continue-payment-btn" (click)="saveDeliveryContact()">Continuer vers le
+                        paiement</button>
                 </div>
 
             </div>
@@ -118,7 +126,7 @@
                 <div class="quantity-product-container">
                     <span class="quantity-product">{{productCart.quantity}}</span>
                 </div>
-                
+
                 <img src="https://picsum.photos/200/300">
             </div>
             <div class="logo"><i class="fa-solid fa-book"></i></div>
