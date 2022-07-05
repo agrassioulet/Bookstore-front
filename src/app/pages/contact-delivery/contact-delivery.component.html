@@ -42,7 +42,7 @@
                     <label for="country">PAYS</label>
                     <div class="select-container">
                         <select name="country" id="country" formControlName="country"
-                        [(ngModel)]="deliveryContact.country">
+                            [(ngModel)]="deliveryContact.country">
                             <option value="france">France</option>
                             <option value="spain">Espagne</option>
                             <option value="italy">Italie</option>
@@ -56,37 +56,37 @@
                 <div class="field">
                     <label for="firstname">Prénom</label>
                     <input type="text" placeholder="Prénom" formControlName="firstname"
-                    [(ngModel)]="deliveryContact.firstname">
+                        [(ngModel)]="deliveryContact.firstname">
                 </div>
 
                 <div class="field">
                     <label for="lastname">Nom</label>
                     <input type="text" name="lastname" id="lastname" placeholder="Nom" formControlName="lastname"
-                    [(ngModel)]="deliveryContact.lastname">
+                        [(ngModel)]="deliveryContact.lastname">
                 </div>
 
                 <div class="field">
                     <label for="company">Entreprise</label>
                     <input type="text" name="company" id="company" placeholder="Entreprise" formControlName="company"
-                    [(ngModel)]="deliveryContact.company">
+                        [(ngModel)]="deliveryContact.company">
                 </div>
 
                 <div class="field">
                     <label for="adress">Adresse</label>
                     <input type="text" name="adress" id="adress" placeholder="Adresse" formControlName="adress"
-                    [(ngModel)]="deliveryContact.adress">
+                        [(ngModel)]="deliveryContact.adress">
                 </div>
 
                 <div class="field">
                     <label for="postal-code">Code postal</label>
                     <input type="text" name="postal-code" id="postal-code" placeholder="Code postal"
-                    formControlName="postalCode" [(ngModel)]="deliveryContact.postalCode">
+                        formControlName="postalCode" [(ngModel)]="deliveryContact.postalCode">
                 </div>
 
                 <div class="field">
                     <label for="adress">Ville</label>
                     <input type="text" name="city" id="city" placeholder="Ville" formControlName="city"
-                    [(ngModel)]="deliveryContact.city">
+                        [(ngModel)]="deliveryContact.city">
                 </div>
 
                 <div class="field">
@@ -105,29 +105,44 @@
 
 
                 <div class="actions">
-                    <button class="continue-payment-btn" (click)="saveDeliveryContact()">Continuer vers le paiement</button>
+                    <button class="continue-payment-btn" (click)="saveDeliveryContact()">Valider le paiement</button>
                 </div>
 
             </div>
 
         </form>
+
+
     </div>
 
 
     <div class="summary-order">
-        <p class="title">Récapitulatif de la commande</p>
 
-        <div class="product-cart" *ngFor="let productCart of order.product_cart">
-            <div class="img-container">
-                <div class="quantity-product-container">
-                    <span class="quantity-product">{{productCart.quantity}}</span>
+        <div class="summary-container">
+
+            <p class="title">Récapitulatif de la commande</p>
+
+            <div class="product-cart" *ngFor="let productCart of order.product_cart">
+                <div class="img-container">
+                    <div class="quantity-product-container">
+                        <span class="quantity-product">{{productCart.quantity}}</span>
+                    </div>
+
+                    <img src="https://picsum.photos/200/300">
                 </div>
-
-                <img src="https://picsum.photos/200/300">
+                <div class="logo"><i class="fa-solid fa-book"></i></div>
+                <div class="price-total-product">{{productCart.product.price}} €</div>
             </div>
-            <div class="logo"><i class="fa-solid fa-book"></i></div>
-            <div class="price-total-product">{{productCart.product.price}} €</div>
+
+            <div class="total">
+                <span class="label">TOTAL :</span>
+                <span class="value">{{total}} €</span>
+            </div>
+
+
         </div>
+
+
 
 
     </div>

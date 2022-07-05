@@ -6,10 +6,10 @@ import { IOrder, OrderOperator } from 'src/app/models/order';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
-import Stripe from 'stripe';
 import { PaymentService } from 'src/app/services/payment.service';
 import { IDeliveryContact, DeliveryContactOperator } from 'src/app/models/delivery_contact';
 import { UserService } from 'src/app/services/user.service';
+import { IProductCart } from 'src/app/models/product_cart';
 
 @Component({
   selector: 'app-contact-delivery',
@@ -17,6 +17,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./contact-delivery.component.scss']
 })
 export class ContactDeliveryComponent implements OnInit {
+  total: Number = 0
   paymentHandler:any = null;
   order: IOrder = OrderOperator.initOrder();
   deliveryContact : IDeliveryContact = DeliveryContactOperator.initDeliveryContact()
@@ -39,11 +40,17 @@ export class ContactDeliveryComponent implements OnInit {
     private orderService: OrderService,
     private authentificationService: AuthentificationService,
     private productService: ProductService,
-    private userService: UserService
+    private userService: UserService,
+    private paymentService: PaymentService
   ) { }
 
   ngOnInit(): void {
     this.initData()
+  }
+
+
+  makePayment(amount: Number) {
+    this.paymentService.makePayment(amount)
   }
 
   initData() {
@@ -51,6 +58,7 @@ export class ContactDeliveryComponent implements OnInit {
       console.log('getActiveOrder', result)
       if(result.status == 1) {
         this.order = result.data
+        this.getTotal(this.order.product_cart ?? [])
          
         if(result.data.hasOwnProperty('delivery_contact')) {
           this.deliveryContact = result.data.delivery_contact ?? this.deliveryContact
@@ -64,14 +72,25 @@ export class ContactDeliveryComponent implements OnInit {
         }
       }
     })
-
-
-
   }
+
+  getTotal(product_cart: IProductCart[]) {
+    var tmp = 0
+    if(product_cart!= undefined) {
+      product_cart.forEach(productCart => {
+        tmp = tmp + productCart.quantity * productCart.product.price
+      })
+    }
+    console.log('subtotal computed ' , tmp)
+    this.total = tmp
+  }
+
+
 
   saveDeliveryContact() {
     console.log('contact Delivery Form', this.contactDeliveryForm.value)
     if (this.contactDeliveryForm.valid) {
+      this.makePayment(this.total)
       this.orderService.saveDeliveryContact(this.contactDeliveryForm.value).subscribe(result => {
         console.log(result)
         if (result.status == 1) {

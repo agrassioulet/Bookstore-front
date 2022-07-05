@@ -89,14 +89,14 @@ $light-grey: #dedede;
                     height: 40px;
                     border: 1px solid grey;
 
-                    &:hover> :not(.quantity-number) {
-                        visibility: visible;
-                    }
+                    // &:hover> :not(.quantity-number) {
+                    //     visibility: visible;
+                    // }
 
 
 
                     > :not(.quantity-number) {
-                        visibility: hidden;
+                        visibility: visible;
                         @include flex-center;
                         font-size: 1.2em;
                         padding: 5px;
@@ -155,7 +155,7 @@ $light-grey: #dedede;
 
 
         .actions {
-            margin-top: 60px;
+            margin: 60px 0;
             display: flex;
             justify-content: space-between;
 
@@ -181,7 +181,41 @@ $light-grey: #dedede;
         }
 
     }
+}
 
 
 
+
+// RESPONSIVE PART
+@media (max-width: 1000px) {
+
+    .cart-container {
+
+        .cart {
+            width: 80%;
+
+    
+    
+            > .title {
+    
+            }
+    
+    
+            .product-cart-container {
+    
+                .product-cart {
+                    padding-bottom: 15px;
+
+
+                    .logo {
+                        display: none;
+                    }
+    
+                }
+    
+            }
+    
+        }
+    }
+    
 }
