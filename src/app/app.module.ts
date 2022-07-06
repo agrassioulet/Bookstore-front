@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './tools/navbar/navbar.component';
 
 import { MATERIAL } from './material';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './tools/footer/footer.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
@@ -52,6 +53,7 @@ import { AccountUpdateComponent } from './pages/account/account-update/account-u
     BrowserModule,
     NgxBootstrapIconsModule.pick(allIcons),
     MATERIAL,
+    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,

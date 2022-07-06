@@ -7,8 +7,9 @@
             <a routerLink="/product-list" class="font-size-1">Produits</a>
         </div>
         <div class="nav-top-right d-flex">
-            <div class="btn-container search-container">
-                <button class="search-btn" (click)="openSearch=!openSearch" [ngClass]="{'focus-button': openSearch == true}"><i
+            <div class="btn-container search-container" (click)="openSearch=!openSearch" 
+            [ngClass]="{'focus-button': openSearch == true}">
+                <button class="search-btn" ><i
                     class="fa-solid fa-magnifying-glass"></i></button>
             </div>
 

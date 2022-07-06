@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/category';
 import { IUser, UserOperators } from 'src/app/models/user';
 import { AuthentificationService } from 'src/app/services/authentification.service';
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit {
   public quantityCart = 0
 
   constructor(
+    private router : Router,
     private productService: ProductService,
     private auth: AuthentificationService,
     private userService: UserService,
@@ -28,6 +30,8 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
     this.initUserInfos()
     this.initCategories()

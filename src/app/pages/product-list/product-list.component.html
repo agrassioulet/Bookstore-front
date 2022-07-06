@@ -7,27 +7,52 @@
         <div class="row">
 
             <div class="col-3 filter-part">
-                <p class="title">Affiner les résultats par : <i class="fa-solid fa-angle-down"></i></p>
+                <p class="title">Affiner les résultats :</p>
 
                 <div class="filter-list">
 
                     <div class="language-filter">
-                        <p class="title"><button class="hide-button-style">Langue <i
-                                    class="fa-solid fa-angle-down"></i></button> </p>
-                        <div class="option-list">
-                            <p class="d-flex justify-content-between align-items-md-baseline"><button
-                                    class="hide-button-style">English</button><span class="number_items">3509</span></p>
-                            <p class="d-flex justify-content-between align-items-md-baseline"><button
-                                    class="hide-button-style">French</button><span class="number_items">379</span></p>
-                            <p class="d-flex justify-content-between align-items-md-baseline"><button
-                                    class="hide-button-style">Spanish</button><span class="number_items">147</span></p>
+                        <p class="title">
+                            <button (click)="languagePanel=!languagePanel" class="hide-button-style">
+                                <span>Langue</span>
+                                <i class="fa-solid fa-angle-{{languagePanel ? 'down' : 'up'}}"></i>
+                            </button>
+                        </p>
+                        <div class="option-list" *ngIf="languagePanel">
+                            <p class="d-flex justify-content-between align-items-md-baseline">
+                                <button (click)="filterLanguage(enumLanguage.ENGLISH)"
+                                    [ngClass]="{'hide-button-style': true, 'bold' : languageFilter == enumLanguage.ENGLISH}"
+                                    class="hide-button-style">Anglais</button>
+                                <span class="number_items">3509</span>
+                            </p>
+
+                            <p class="d-flex justify-content-between align-items-md-baseline">
+                                <button (click)="filterLanguage(enumLanguage.SPANISH)"
+                                    [ngClass]="{'hide-button-style': true, 'bold' : languageFilter == enumLanguage.SPANISH}"
+                                    class="hide-button-style">Espagnol
+                                </button>
+                                <span class="number_items">379</span>
+                            </p>
+
+                            <p class="d-flex justify-content-between align-items-md-baseline">
+                                <button (click)="filterLanguage(enumLanguage.FRENCH)"
+                                    [ngClass]="{'hide-button-style': true, 'bold' : languageFilter == enumLanguage.FRENCH}"
+                                    class="hide-button-style">Français
+                                </button>
+                                <span class="number_items">147</span>
+                            </p>
                         </div>
                     </div>
 
                     <div class="number-page-filter">
-                        <p class="title"><button class="hide-button-style">Nombre de pages <i
-                                    class="fa-solid fa-angle-down"></i></button></p>
-                        <div class="option-list">
+                        <p class="title">
+                            <button (click)="numberPagesPanel=!numberPagesPanel" class="hide-button-style">
+                                <span>Nombre de pages</span>
+                                <i class="fa-solid fa-angle-{{numberPagesPanel ? 'down' : 'up'}}"></i>
+                            </button>
+                        </p>
+
+                        <div class="option-list" *ngIf="numberPagesPanel">
                             <p class="d-flex justify-content-between align-items-md-baseline"><button
                                     class="hide-button-style">0 - 150</button><span class="number_items">3509</span></p>
                             <p class="d-flex justify-content-between align-items-md-baseline"><button
@@ -38,50 +63,72 @@
                             </p>
                         </div>
                     </div>
+
+                    <button type="button" class="erase-filters-btn" (click)="eraseFilters()">Effacer les
+                        filtres</button>
+
                 </div>
 
             </div>
 
             <div class="col-8 product-list-part">
 
+                <div class="product-list-container">
 
-                <div class="container-product" *ngFor="let product of products">
+                    <p class="title" *ngIf="selectedCategory != null">Catégorie : {{ selectedCategory.title }}</p>
+                    <p class="title" *ngIf="selectedCategory == null">Tous nos produits</p>
 
-                    <div class="product d-flex" >
+                    <div class="container-product"
+                        *ngFor="let product of filteredProducts | paginate : { itemsPerPage: 10, currentPage: p}">
+                        <div class="product d-flex">
 
-                        <div class="img-container"><img src="https://picsum.photos/200/300" alt=""></div>
+                            <div class="img-container"><img src="https://picsum.photos/200/300"></div>
 
-                        <div class="infos d-flex flex-column">
-                            <p class="title">{{ product.title }}</p>
-                            <p class="contributor-container"><span>By </span>
-                                <span class="contributor-name">{{ product.contributor.name }}</span></p>
-                            
-                            <p class="category">{{product.category.title}}</p>
+                            <div class="infos d-flex flex-column">
+                                <p class="title cursor-pointer" routerLink="/product-detail/{{product._id}}">{{
+                                    product.title }}</p>
+                                <p class="contributor-container"><span>By </span>
+                                    <span class="contributor-name">{{ product.contributor.name }}</span>
+                                </p>
 
-                            <div class="d-flex align-items-center evaluation">
-                                <div class="d-flex number-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
+                                <p class="category">{{product.category.title}}</p>
+
+                                <div class="d-flex align-items-center evaluation">
+                                    <div class="d-flex number-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <div class="number-evaluation">3 évaluations</div>
                                 </div>
-                                <div class="number-evaluation">3 évaluations</div>
-                            </div>
-                            <div class="publication-date">Publié le {{ op.getFormatDate(product.publication_date)  }}</div>
-                            <div class="bottom-block d-flex justify-content-between align-items-end">
-                                <div class="price">EUR {{ product.price }}</div>
-                                <div class="actions cursor-pointer">
-                                    <a routerLink="/product-detail/{{product._id}}" class="hide-button-style"><i class="fa-solid fa-file"></i></a>
-
+                                <div class="publication-date">Publié le {{ op.getFormatDate(product.publication_date) }}
                                 </div>
+                                <div class="language">{{product.language}}</div>
+                                <div class="bottom-block d-flex justify-content-between align-items-end">
+                                    <div class="price">EUR {{ product.price }}</div>
+                                    <div class="actions cursor-pointer">
+                                        <a routerLink="/product-detail/{{product._id}}" class="hide-button-style"><i
+                                                class="fa-solid fa-file"></i></a>
+
+                                    </div>
+                                </div>
+
                             </div>
-                            
+
                         </div>
 
                     </div>
 
+                    <pagination-controls previousLabel="Précédent" nextLabel="Suivant" 
+                    (pageChange)="changePage($event)">
+                    </pagination-controls>
+
+
                 </div>
+
+
 
             </div>
 

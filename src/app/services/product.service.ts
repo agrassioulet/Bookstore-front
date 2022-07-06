@@ -22,6 +22,11 @@ export class ProductService {
     return this.httpClient.get<{status: number, data: ICategory[]}>(this.url + '/get-all-categories');
   }
 
+  public getCategoryProductByCode(code: string) {
+    return this.httpClient.post<{status: number, data: ICategory, message: string}>(this.url + '/get-category-by-code', 
+    {code: code});
+  }
+
   public getProductById(id: string): Observable<any> {
     return this.httpClient.get<{status: number, data: any, message: string}>(this.url + '/get-product-by-id' + '/' + id);
   }

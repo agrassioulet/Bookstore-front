@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
 $marine-color: #000083;
-
+$blue-sky: #22B5F0;
+$light-grey: #dedede;
 
 .product-list-container {
 
@@ -13,7 +15,7 @@ $marine-color: #000083;
             border-bottom: 1px solid grey;
             font-size: 1.3em;
             padding-bottom: 10px;
-            margin-bottom: 50px;
+            margin-bottom: 15px;
         }
 
         .filter-list {
@@ -24,7 +26,7 @@ $marine-color: #000083;
             .language-filter, .number-page-filter {
                 padding-top: 10px;
                 padding-bottom: 10px;
-                margin-bottom: 50px;
+                margin-bottom: 15px;
                 // border-bottom: solid 1px grey;
                 border-bottom: solid 1px grey;
                 border-top: solid 1px grey;
@@ -33,6 +35,10 @@ $marine-color: #000083;
                     font-size: 1.1em;
                     padding-bottom: 5px;
                     margin-bottom: 0;
+
+                    > button > span {
+                        margin-right: 10px;
+                    }
                 }
 
                 .option-list {
@@ -51,97 +57,118 @@ $marine-color: #000083;
                 }
 
             } 
+
+            .erase-filters-btn {
+                margin-top: 30px;
+                border-radius: 2px;
+                padding: 15px;
+                color: white !important;
+                background-color: #4689ef;
+                border: none;
+            }
         }
 
     }
 
 
     .product-list-part {
+        
+        .product-list-container {
 
-        .container-product {
-            width: 80%;
+            padding: 0;
             margin-left: 200px;
-            margin-bottom: 60px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid grey;
+            width: 80%;
 
-            .product {
 
-                width: 600px;
-                height: 300px;
-
+            > .title {
+                margin-bottom: 30px;
+                font-weight: bold;
+                font-size: 2em;
+                color: $marine-color;
+                font-family: 'ABeeZee', sans-serif
+            }
     
-                .img-container {
-                    width: 200px;
+            .container-product {
+                margin-bottom: 60px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid grey;
+    
+                .product {
+    
+                    width: 600px;
                     height: 300px;
-                    overflow: hidden;
-
-                    img {
+    
+                    .img-container {
                         width: 200px;
                         height: 300px;
-                        object-fit: contain;
-                    }
-                }
+                        overflow: hidden;
     
-                .infos {
-                    padding-left: 30px;
-                    flex-grow: 1;
-    
-                    >.title {
-                        font-size: 1.5em;
-                    }
-    
-                    .contributor-container {
-                        color: $marine-color;
-                        font-size: 1.2em;
-    
-                        .contributor-name {
-                            font-style: italic;
+                        img {
+                            width: 200px;
+                            height: 300px;
+                            object-fit: contain;
                         }
                     }
-
-                    // .category {
-
-                    // }
-    
-                    .evaluation {
-                        margin-bottom: 10px;
-                        .number-stars {
-                            width: 150px;
-                        }
-    
-                        .number-evaluation {
-                            color: $marine-color;
-                            font-size: 1.0em;
-                            position: relative;
-                            bottom: -2px;
-                        }
-    
-                        i {
+        
+                    .infos {
+                        padding-left: 30px;
+                        flex-grow: 1;
+        
+                        >.title {
                             font-size: 1.5em;
-                            color: rgb(225, 225, 0);
                         }
-    
-                    }
-    
-                    .publication-date {
-                        color: grey;
-                        font-size: 0.8em;
-                        margin-bottom: 20px;
-                    }
-    
-                    .bottom-block {
-                        margin-top: auto;
-
-                        i {
-                            font-size: 3em;
-                            color: #4689ef;
+        
+                        .contributor-container {
+                            color: $marine-color;
+                            font-size: 1.2em;
+        
+                            .contributor-name {
+                                font-style: italic;
+                            }
                         }
-                    }
+        
+                        .evaluation {
+                            margin-bottom: 10px;
+                            .number-stars {
+                                width: 150px;
+                            }
+        
+                            .number-evaluation {
+                                color: $marine-color;
+                                font-size: 1.0em;
+                                position: relative;
+                                bottom: -2px;
+                            }
+        
+                            i {
+                                font-size: 1.5em;
+                                color: rgb(225, 225, 0);
+                            }
+        
+                        }
+        
+                        .publication-date {
+                            color: grey;
+                            font-size: 0.8em;
+                            margin-bottom: 20px;
+                        }
+        
+                        .bottom-block {
+                            margin-top: auto;
     
+                            i {
+                                font-size: 3em;
+                                color: #4689ef;
+                            }
+                        }
+        
+                    }
+        
                 }
+    
     
             }
+    
 
 
         }
