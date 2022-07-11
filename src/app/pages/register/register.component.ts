@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUser, UserOperators } from 'src/app/models/user';
-import { AuthentificationService } from 'src/app/services/authentification.service';
+import { AuthentificationService } from 'src/app/_services/authentification.service';
+
+declare var Cleave: any;
+
 
 @Component({
   selector: 'app-register',
@@ -14,11 +17,15 @@ export class RegisterComponent implements OnInit {
   formErrors: String = ''
   errorsDisplay: string[] = []
 
+  // Phone input with cleave
+  cleave: any;
+
   userForm = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
   })
@@ -29,12 +36,21 @@ export class RegisterComponent implements OnInit {
     public authentificationService: AuthentificationService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.initCleave()
+  }
+
+  initCleave() {
+    this.cleave = new Cleave('#phone-number-input', {
+      phone: true,
+      phoneRegionCode: 'FR'
+    });
+  }
 
   register() {
     this.errorsDisplay = []
     var errorsTab: { prop: String, val: string }[] = []
-    var propTab = ['firstname', 'lastname', 'email', 'username', 'password', 'confirmPassword']
+    var propTab = ['firstname', 'lastname', 'email', 'username', 'phoneNumber', 'password', 'confirmPassword']
 
     if (!this.userForm.valid) {
       propTab.forEach(property => {

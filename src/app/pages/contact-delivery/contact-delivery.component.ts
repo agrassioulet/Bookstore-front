@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { IOrder, OrderOperator } from 'src/app/models/order';
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { OrderService } from 'src/app/services/order.service';
-import { ProductService } from 'src/app/services/product.service';
-import { PaymentService } from 'src/app/services/payment.service';
+import { AuthentificationService } from 'src/app/_services/authentification.service';
+import { OrderService } from 'src/app/_services/order.service';
+import { ProductService } from 'src/app/_services/product.service';
+import { PaymentService } from 'src/app/_services/payment.service';
 import { IDeliveryContact, DeliveryContactOperator } from 'src/app/models/delivery_contact';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/_services/user.service';
 import { IProductCart } from 'src/app/models/product_cart';
 
 @Component({

@@ -11,27 +11,29 @@ import { SuccessComponent } from './pages/payment/success/success.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { AuthGuardService } from './_services/gards/auth-gard.service';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'product-add', component: ProductAddComponent},
   {path: 'product-list', component: ProductListComponent},
+  {path: 'product-list/key-word/:key_word', component: ProductListComponent},
   {path: 'product-list/:category_code', component: ProductListComponent},
   {path: 'product-detail/:product_id', component: ProductDetailComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'contact-delivery', component: ContactDeliveryComponent},
-  {path: 'payment/success', component: SuccessComponent},
-  {path: 'payment/failure', component: FailureComponent},
-  {path: 'account', component: AccountComponent},
-  {path: 'account-update', component: AccountUpdateComponent},
+  {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
+  {path: 'contact-delivery', component: ContactDeliveryComponent, canActivate: [AuthGuardService]},
+  {path: 'payment/success', component: SuccessComponent, canActivate: [AuthGuardService]},
+  {path: 'payment/failure', component: FailureComponent, canActivate: [AuthGuardService]},
+  {path: 'account', component: AccountComponent, canActivate: [AuthGuardService]},
+  {path: 'account-update', component: AccountUpdateComponent, canActivate: [AuthGuardService]},
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    onSameUrlNavigation: 'reload',
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

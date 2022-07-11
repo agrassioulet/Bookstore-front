@@ -45,7 +45,8 @@
     </div>
     <div class="nav-bottom" *ngIf="openSearch">
         <div class="nav-search d-flex justify-content-center align-items-center">
-            <input type="text" placeholder="Rechercher un livre">
+            <input type="text" placeholder="Rechercher un livre" (keypress)="searchByKeyWord($event)"
+            [(ngModel)]="keyWord">
             <button (click)="openCategories=!openCategories"><span>Afficher les catégories</span>
                 <i class="fa-solid fa-angle-{{openCategories == false ? 'down' : 'up'}}"></i></button>
         </div>

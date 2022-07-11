@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUser, UserOperators } from 'src/app/models/user';
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { UserService } from 'src/app/services/user.service';
+import { AuthentificationService } from 'src/app/_services/authentification.service';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-account-update',

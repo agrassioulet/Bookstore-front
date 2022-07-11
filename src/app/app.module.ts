@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { allIcons } from 'ngx-bootstrap-icons';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,7 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
-import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
+import { TokenInterceptorService } from './_services/interceptors/token-interceptor.service';
 import { CartComponent } from './pages/cart/cart.component';
 import { ContactDeliveryComponent } from './pages/contact-delivery/contact-delivery.component';
 import { PaymentComponent } from './pages/payment/payment.component';
@@ -27,6 +26,7 @@ import { SuccessComponent } from './pages/payment/success/success.component';
 import { FailureComponent } from './pages/payment/failure/failure.component';
 import { AccountComponent } from './pages/account/account/account.component';
 import { AccountUpdateComponent } from './pages/account/account-update/account-update.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
 
 
 
@@ -46,7 +46,8 @@ import { AccountUpdateComponent } from './pages/account/account-update/account-u
     SuccessComponent,
     FailureComponent,
     AccountComponent,
-    AccountUpdateComponent
+    AccountUpdateComponent,
+    ProductAddComponent
   ],
   imports: [
     HttpClientModule,
@@ -60,11 +61,13 @@ import { AccountUpdateComponent } from './pages/account/account-update/account-u
     NgbModule,
     BrowserAnimationsModule
   ],
-  providers: [    {
+  providers: [
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
-  }],
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { IOrder, OrderOperator } from 'src/app/models/order';
 import { ICategory } from 'src/app/models/category';
 import { IProductCart } from 'src/app/models/product_cart';
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { ProductService } from 'src/app/services/product.service';
-import { ReloadService } from 'src/app/services/reload.service';
+import { AuthentificationService } from 'src/app/_services/authentification.service';
+import { ProductService } from 'src/app/_services/product.service';
+import { ReloadService } from 'src/app/_services/reload.service';
 
 @Component({
   selector: 'app-cart',

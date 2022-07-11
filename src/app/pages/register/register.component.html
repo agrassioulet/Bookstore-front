@@ -29,13 +29,18 @@
                 <label for="username-input">Pseudo *</label>
             </div>
 
+            <div class="field" id="phone-number" >
+                <input type="text" id="phone-number-input" placeholder='' formControlName="phoneNumber" [(ngModel)]="user.phone_number">
+                <label for="phone-number-input">Téléphone *</label>
+            </div>
+
             <div class="field" id="password" >
-                <input type="text" id="password-input" placeholder='' formControlName="password" [(ngModel)]="user.password">
+                <input type="password" id="password-input" placeholder='' formControlName="password" [(ngModel)]="user.password">
                 <label for="password-input">Mot de passe *</label>
             </div>
 
             <div class="field" id="confirm-password" >
-                <input type="text" id="confirm-password-input" placeholder='' formControlName="confirmPassword">
+                <input type="password" id="confirm-password-input" placeholder='' formControlName="confirmPassword">
                 <label for="confirm-password-input">Confirmez votre mot de passe *</label>
             </div>
 

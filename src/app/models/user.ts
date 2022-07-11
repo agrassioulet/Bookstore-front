@@ -6,6 +6,7 @@ export interface IUser {
     password: String;
     email: String;
     username: String;
+    phone_number: String;
     delivery_contact?: IDeliveryContact
 
 }
@@ -17,7 +18,8 @@ export const UserOperators = {
             lastname : '',
             password : '',
             email : '',
-            username : ''   
+            username : '',
+            phone_number: '' 
         }
     }
 

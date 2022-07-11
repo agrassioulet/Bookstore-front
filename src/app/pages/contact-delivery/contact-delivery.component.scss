@@ -148,7 +148,7 @@ $light-grey: #dedede;
             .actions {
                 margin: 50px 0;
                 display: flex;
-                justify-content: end;
+                justify-content: flex-end;
 
                 button {
                     font-size: 1.4em;
@@ -253,7 +253,7 @@ $light-grey: #dedede;
             .total {
                 margin-top: 60px;
                 display: flex;
-                justify-content: end;
+                justify-content: flex-end;
                 color: $marine-color;
                 font-weight: 500;
                 font-size: 1.2em;

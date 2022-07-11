@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,10 +11,17 @@ export class AppComponent {
   paymentHandler: any = null;
 
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
+  ngOnInit(): void { }
 
+  upload(event: any) {
+    const file = event.target.files[0];
+    console.log(file)
+    const formdata = new FormData();
+    formdata.append('file', file);
 
-  ngOnInit() {
+    this.httpClient.post('http://localhost:4000/file', formdata).subscribe(
+      result => console.log(result)
+    );
   }
-
 }

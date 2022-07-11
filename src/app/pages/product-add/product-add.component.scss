@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
+$marine-color: #000083;
+$blue-sky: #22B5F0;
+$light-grey: #dedede;
+
+// General properties
+.field {
+    margin-top: 15px;
+
+    label {
+        font-family: 'Varela Round', sans-serif;
+        font-size: 0.7em;
+        color: black;
+        text-transform: uppercase;
+    }
+
+    input {
+        color: black;
+        font-size: 1em;
+
+        &::placeholder {
+            color: grey;
+            font-weight: 300;
+        }
+
+        width: 100%;
+        height: 50px;
+        outline: none;
+        border: 1px solid $light-grey;
+        padding-left: 20px;
+        font-family: 'ABeeZee',
+        sans-serif;
+
+        &:focus {
+            border: 2px solid $marine-color;
+        }
+    }
+
+    .select-container {
+        position: relative;
+
+        select {
+            appearance: none;
+            width: 100%;
+            font-family: 'ABeeZee', sans-serif;
+            height: 50px;
+            outline: none;
+            border: 1px solid $light-grey;
+            padding-left: 20px;
+            font-family: 'ABeeZee', sans-serif;
+            background-color: transparent;
+        }
+
+        i {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+
+        option {
+            background-color: white;
+            font-family: 'ABeeZee', sans-serif;
+            color: $marine-color;
+            width: 100%;
+        }
+
+    }
+
+}
+
+// Other properties
+.product-add-container {
+
+    .product-add {
+        margin: 0 100px;
+
+        >.title {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.6em;
+            color: $marine-color;
+            font-weight: 700;
+
+            img {
+                width: 50px;
+                margin-right: 10px;
+            }
+        }
+
+        .save-product-b {
+            margin: 50px 0;
+            background-color: $blue-sky;
+            color: $marine-color;
+            font-size: 1.4em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 3px
+        }
+
+    }
+
+
+}

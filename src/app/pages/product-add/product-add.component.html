@@ -1,0 +1,93 @@
+
+<div class="product-add-container">
+    <div class="product-add">
+
+        <div class="title cursor-pointer" routerLink="">
+            <img src="../../../assets/images/PeterM-Feather-2.svg">
+            <span>Bookstore</span>
+        </div>
+        <div class="title">Ajouter un produit</div>
+
+        <form [formGroup]="productForm" #form="ngForm">
+
+            <div class="field">
+                <label for="title">Titre</label>
+                <input type="text" placeholder="" formControlName="title">
+            </div>
+
+            <div class="field">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" placeholder=""
+                 formControlName="description">
+            </div>
+
+            <div class="field">
+                <label for="price">Prix</label>
+                <input type="text" name="price" id="price" placeholder="" formControlName="price">
+            </div>
+
+            <div class="field">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" placeholder="" (change)="onFileSelected($event)">
+            </div>
+
+            <div class="field">
+                <label for="isbn">ISBN</label>
+                <input type="text" name="isbn" id="isbn" placeholder=""
+                    formControlName="isbn">
+            </div>
+
+            <div class="field">
+                <label for="isbn">Nombre de pages</label>
+                <input type="text" name="isbn" id="isbn" placeholder="" formControlName="pageNumber">
+            </div>
+
+            <div class="field">
+                <label for="adress">Catégorie</label>
+                <div class="select-container">
+                    <select name="category" id="category" formControlName="categoryCode">
+                        <option *ngFor="let cat of categories" value="{{cat.code}}">{{cat.title}}</option>
+                    </select>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="phone-number">Auteur</label>
+                <div class="select-container">
+                    <select name="contributor" id="contributor" formControlName="contributorName">
+                        <option *ngFor="let cont of contributors" value="{{cont.name}}">{{cont.name}}</option>
+                    </select>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="language">Langue</label>
+                <div class="select-container">
+                    <select name="language" id="language" formControlName="language">
+                        <option value="french">Français</option>
+                        <option value="spanish">Espagnol</option>
+                        <option value="english">Anglais</option>
+                    </select>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="errors text-warning my-3">{{message}}</div>
+
+
+            <div class="actions">
+                <button class="save-product-b" (click)="saveProduct()">Enregistrer le produit</button>
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>

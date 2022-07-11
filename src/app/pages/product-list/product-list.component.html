@@ -76,7 +76,8 @@
                 <div class="product-list-container">
 
                     <p class="title" *ngIf="selectedCategory != null">Catégorie : {{ selectedCategory.title }}</p>
-                    <p class="title" *ngIf="selectedCategory == null">Tous nos produits</p>
+                    <p class="title" *ngIf="selectedCategory == null && keyWord == null">Tous nos produits</p>
+                    <p class="title" *ngIf="selectedCategory == null  && keyWord != null">Recherche par mot-clé: {{ keyWord }}</p>
 
                     <div class="container-product"
                         *ngFor="let product of filteredProducts | paginate : { itemsPerPage: 10, currentPage: p}">
@@ -114,11 +115,8 @@
 
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
 
                     <pagination-controls previousLabel="Précédent" nextLabel="Suivant" 

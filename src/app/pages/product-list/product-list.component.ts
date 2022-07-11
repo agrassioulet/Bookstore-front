@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ICategory } from 'src/app/models/category';
 import { IProduct, ProductOperators } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/_services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,11 +10,15 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  keyWord: string | null = null
+  codeCategory: string | null = null 
+
+
   products: IProduct[] = [];
   filteredProducts: IProduct[] = [];
   categories: ICategory[] = [];
   selectedCategory: ICategory | null = null;
-  categoryCode: String = '';
+  // categoryCode: string = '';
 
   // Panel Variables
   languagePanel = true
@@ -22,7 +26,6 @@ export class ProductListComponent implements OnInit {
 
   // Pagination
   p: number = 1
-
 
   enumLanguage = EnumLanguage
   languageFilter: EnumLanguage | null = null
@@ -35,35 +38,56 @@ export class ProductListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-
-
-
   ngOnInit(): void {
-    this.products = []
-
     var code = this.activatedRoute.snapshot.paramMap.get("category_code")
-    this.categoryCode = code ?? ''
-    console.log('code category: ' + code)
-    this.getCategoryProductByCode(code)
+    var keyWord = this.activatedRoute.snapshot.paramMap.get("key_word")
 
+    if (keyWord != null) {
+      this.keyWord = keyWord
+      this.initProductsByKeyWord(keyWord)
+    }
+    else if (code != null) {
+      this.codeCategory = code
+      this.getCategoryProductByCode(code)
+      this.initProductsByCategory(code)
+    }
+    else {
+      this.initProductsByKeyWord('')
+    }
+    this.initCategories()
+  }
+
+  initProductsByKeyWord(keyWord: string) {
+    this.products = []
+    this.productService.getAllProducts().subscribe(result => {
+      this.products = result.data
+      this.products = this.products.filter(
+        product => product.title.toLowerCase().includes(keyWord.toLowerCase()))
+      this.filteredProducts = this.products
+    })
+  }
+
+  initProductsByCategory(code: string) {
+    this.products = []
     this.productService.getAllProducts().subscribe(result => {
       console.log('getAllProducts : ', result)
       this.products = result.data
-      if (this.categoryCode != '') {
+      if (code != '') {
         console.log('on filter')
-        this.products = this.products.filter(product => product.category.code == this.categoryCode)
+        this.products = this.products.filter(product => product.category.code == code)
       }
       this.filteredProducts = this.products
       console.log('this.filteredProducts', this.filteredProducts)
     })
+  }
 
 
+  initCategories() {
     this.productService.getAllCategories().subscribe(result => {
       this.categories = result.data
       console.log(result)
     })
   }
-
 
   getCategoryProductByCode(code: any) {
     this.productService.getCategoryProductByCode(code).subscribe(result => {
@@ -87,7 +111,7 @@ export class ProductListComponent implements OnInit {
     this.languageFilter = null
   }
 
-  changePage($event : any) {
+  changePage($event: any) {
     this.p = $event
     document.documentElement.scrollTop = 0
   }

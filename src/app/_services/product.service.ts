@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ICategory } from '../models/category';
+import { IContributor } from '../models/contributor';
 import { IProduct } from '../models/product';
 import { IProductCart } from '../models/product_cart';
 
@@ -19,7 +20,13 @@ export class ProductService {
   }
 
   public getAllCategories() {
-    return this.httpClient.get<{status: number, data: ICategory[]}>(this.url + '/get-all-categories');
+    return this.httpClient.get<{status: number, data: ICategory[], message: string}>
+    (this.url + '/get-all-categories');
+  }
+
+  public getAllContributors() {
+    return this.httpClient.get<{status: number, data: IContributor[], message: string}>
+    (this.url + '/get-all-contributors');
   }
 
   public getCategoryProductByCode(code: string) {
