@@ -24,9 +24,15 @@ export class OrderService {
     (this.url + '/get-active-order');
   }
 
+  validatePayment() {
+    return this.httpClient.get<{ status: Number, data: any, message: string }>
+    (this.url + '/validate-payment');
+  }
 
-
-
+  getOrderHistory() {
+    return this.httpClient.get<{ status: Number, data: IOrder[], message: string }>
+    (this.url + '/get-order-history');
+  }
 
 
 }

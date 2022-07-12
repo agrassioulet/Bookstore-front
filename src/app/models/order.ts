@@ -6,6 +6,8 @@ export interface IOrder {
     status: String;
     updateAt: Date;
     active: boolean;
+    client_ref?: string;
+    validation_date?: Date;
     product_cart?: IProductCart[];
 }
 

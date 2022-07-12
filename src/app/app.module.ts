@@ -27,6 +27,8 @@ import { FailureComponent } from './pages/payment/failure/failure.component';
 import { AccountComponent } from './pages/account/account/account.component';
 import { AccountUpdateComponent } from './pages/account/account-update/account-update.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { SuccessPaymentComponent } from './pages/success-payment/success-payment.component';
+import { FailurePaymentComponent } from './pages/failure-payment/failure-payment.component';
 
 
 
@@ -47,7 +49,9 @@ import { ProductAddComponent } from './pages/product-add/product-add.component';
     FailureComponent,
     AccountComponent,
     AccountUpdateComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    SuccessPaymentComponent,
+    FailurePaymentComponent
   ],
   imports: [
     HttpClientModule,

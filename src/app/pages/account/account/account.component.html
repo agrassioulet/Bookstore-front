@@ -30,34 +30,14 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>54DZ5V7S3</td>
-                        <td>23/02/2021</td>
-                        <td>225.30 €</td>
-                        <td>En cours</td>
+                    <tr *ngFor="let order of orders">
+                        <td>{{order.client_ref}}</td>
+                        <td>{{order.validation_date | date:'dd/MM/YYYY'}}</td>
+                        <td>{{getTotal(order)}} €</td>
+                        <td>{{order.status}}</td>
                         <td>Afficher</td>
                     </tr>
-                    <tr>
-                        <td>IY4I96S3</td>
-                        <td>16/06/2022</td>
-                        <td>13.30 €</td>
-                        <td>Livré</td>
-                        <td>Afficher</td>
-                    </tr>
-                    <tr>
-                        <td>IUDZUDUZ</td>
-                        <td>05/02/2020</td>
-                        <td>12.50 €</td>
-                        <td>Livré</td>
-                        <td>Afficher</td>
-                    </tr>
-                    <tr>
-                        <td>NCNBZZOZ</td>
-                        <td>07/06/2020</td>
-                        <td>22.30 €</td>
-                        <td>Livré</td>
-                        <td>Afficher</td>
-                    </tr>
+ 
                 </tbody>
 
 

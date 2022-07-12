@@ -120,8 +120,7 @@
                                 </div>
                                 <div class="publication-date">Publié le {{ op.getFormatDate(product.publication_date) }}
                                 </div>
-                                <div class="language">{{product.language}}</div>
-                                <div class="number-page">{{product.page}} pages</div>
+                                <div class="product-properties">{{product.language}} - {{product.page}} pages</div>
                                 <div class="bottom-block d-flex justify-content-between align-items-end">
                                     <div class="price">EUR {{ product.price }}</div>
                                     <div class="actions cursor-pointer">
@@ -154,3 +153,5 @@
 
 
 </div>
+
+<app-footer></app-footer>

@@ -10,12 +10,18 @@ import { IDeliveryContact, DeliveryContactOperator } from 'src/app/models/delive
 import { UserService } from 'src/app/_services/user.service';
 import { IProductCart } from 'src/app/models/product_cart';
 
+import { loadStripe } from '@stripe/stripe-js';
+import { environment } from 'src/environments/environment';
+
+
 @Component({
   selector: 'app-contact-delivery',
   templateUrl: './contact-delivery.component.html',
   styleUrls: ['./contact-delivery.component.scss']
 })
 export class ContactDeliveryComponent implements OnInit {
+  stripePromise = loadStripe(environment.STRIPE_KEY);
+
   total: Number = 0
   paymentHandler:any = null;
   order: IOrder = OrderOperator.initOrder();
@@ -47,9 +53,20 @@ export class ContactDeliveryComponent implements OnInit {
     this.initData()
   }
 
+  async checkout() {
+    const stripe = await this.stripePromise;
+    console.log("stripe", stripe)
+    const error = stripe != null ? await stripe.redirectToCheckout({
+      mode: 'payment',
+      lineItems: [{ price: 'price_1LKi94ICnI7jktLG57WB7rFQ',  quantity: 2 }],
+      successUrl: window.location.origin + '/payment/success',
+      cancelUrl: window.location.origin + '/payment/failure',
+    }) : 'stripe not founded'
+    console.log('redirectToCheckout', error)
+    if (error) {
+      console.log(error);
+    }
 
-  makePayment(amount: Number) {
-    this.paymentService.makePayment(amount)
   }
 
   initData() {
@@ -64,6 +81,7 @@ export class ContactDeliveryComponent implements OnInit {
         }
         else {
           this.userService.getUserInfos().subscribe(resultUser => {
+            console.log('resultUser', resultUser)
             if(resultUser.status == 1 && resultUser.data.hasOwnProperty('delivery_contact')) {
               this.deliveryContact = resultUser.data.delivery_contact ?? this.deliveryContact
             }
@@ -86,14 +104,13 @@ export class ContactDeliveryComponent implements OnInit {
 
 
 
-  saveDeliveryContact() {
+  saveDeliveryContactAndPay() {
     console.log('contact Delivery Form', this.contactDeliveryForm.value)
     if (this.contactDeliveryForm.valid) {
-      this.makePayment(this.total)
       this.orderService.saveDeliveryContact(this.contactDeliveryForm.value).subscribe(result => {
         console.log(result)
         if (result.status == 1) {
-          this.router.navigate(['/payment/success']);
+          this.checkout()
         }
       })
     }

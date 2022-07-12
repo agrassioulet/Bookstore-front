@@ -15,7 +15,7 @@ import { UserService } from 'src/app/_services/user.service';
 export class NavbarComponent implements OnInit {
   keyWord = ''
   categories: ICategory[] = []
-  openSearch: boolean = true;
+  openSearch: boolean = false;
   openCategories: boolean = false;
   openUserPanel: boolean = false;
   public isUserLogin = false
@@ -79,12 +79,10 @@ export class NavbarComponent implements OnInit {
   }
 
   initCategories() {
-
     this.productService.getAllCategories().subscribe(result => {
       this.categories = result.data
       console.log(result)
     })
-
   }
 
 }

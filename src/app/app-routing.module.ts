@@ -13,6 +13,8 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { RegisterComponent } from './pages/register/register.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { AuthGuardService } from './_services/gards/auth-gard.service';
+import { SuccessPaymentComponent } from './pages/success-payment/success-payment.component';
+import { FailurePaymentComponent } from './pages/failure-payment/failure-payment.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -25,8 +27,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
   {path: 'contact-delivery', component: ContactDeliveryComponent, canActivate: [AuthGuardService]},
-  {path: 'payment/success', component: SuccessComponent, canActivate: [AuthGuardService]},
-  {path: 'payment/failure', component: FailureComponent, canActivate: [AuthGuardService]},
+  {path: 'payment/success', component: SuccessPaymentComponent},
+  {path: 'payment/failure', component: FailurePaymentComponent},
   {path: 'account', component: AccountComponent, canActivate: [AuthGuardService]},
   {path: 'account-update', component: AccountUpdateComponent, canActivate: [AuthGuardService]},
 

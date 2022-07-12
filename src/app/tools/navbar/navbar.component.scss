@@ -10,6 +10,7 @@ $marine-color: #000083;
 
 
 a {
+    color: $marine-color;
     text-decoration: none;
     transition-duration: 200ms;
     transition-property: all;
@@ -27,7 +28,7 @@ a {
 .nav-top {
     height: 70px;
     padding: 40px 30px;
-    background-color: aliceblue;
+    background-color: rgb(155, 208, 255);
 
     .nav-top-left {
         padding-left: 80px;
