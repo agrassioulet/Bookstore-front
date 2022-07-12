@@ -11,11 +11,14 @@ import { ProductService } from 'src/app/_services/product.service';
 })
 export class ProductListComponent implements OnInit {
   keyWord: string | null = null
-  codeCategory: string | null = null 
+  codeCategory: string | null = null
 
 
   products: IProduct[] = [];
   filteredProducts: IProduct[] = [];
+  filteredProductsByLanguage!: IProduct[];
+  filteredProductsByPage!: IProduct[];
+
   categories: ICategory[] = [];
   selectedCategory: ICategory | null = null;
   // categoryCode: string = '';
@@ -29,7 +32,7 @@ export class ProductListComponent implements OnInit {
 
   enumLanguage = EnumLanguage
   languageFilter: EnumLanguage | null = null
-  numberPagesFilter: number = 0
+  pageFilter: number | null = null
 
   op = ProductOperators;
 
@@ -52,9 +55,29 @@ export class ProductListComponent implements OnInit {
       this.initProductsByCategory(code)
     }
     else {
+      console.log('init by null kyword')
       this.initProductsByKeyWord('')
     }
+    console.log('this.products ', this.products)
+    console.log('filteredProductsByPage ', this.filteredProductsByPage)
     this.initCategories()
+  }
+
+
+  getNumberProductsByLanguage(language: string) {
+    var cpt = 0
+    this.products.forEach(product => {
+      if (product.language == language) { cpt++ }
+    })
+    return cpt
+  }
+
+  getNumberProductsByPage(minNum: number, maxNum: number) {
+    var cpt = 0
+    this.products.forEach(product => {
+      if (product.page <= maxNum && product.page >= minNum) { cpt++ }
+    })
+    return cpt
   }
 
   initProductsByKeyWord(keyWord: string) {
@@ -64,6 +87,8 @@ export class ProductListComponent implements OnInit {
       this.products = this.products.filter(
         product => product.title.toLowerCase().includes(keyWord.toLowerCase()))
       this.filteredProducts = this.products
+      this.filteredProductsByLanguage = this.products
+      this.filteredProductsByPage = this.products
     })
   }
 
@@ -77,7 +102,8 @@ export class ProductListComponent implements OnInit {
         this.products = this.products.filter(product => product.category.code == code)
       }
       this.filteredProducts = this.products
-      console.log('this.filteredProducts', this.filteredProducts)
+      this.filteredProductsByLanguage = this.products
+      this.filteredProductsByPage = this.products
     })
   }
 
@@ -98,22 +124,43 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  filterPage(minNum: number, maxNum: number, state: number) {
+    this.filteredProductsByPage = this.products.filter(product => {
+      return (minNum <= product.page && product.page <= maxNum)
+    })
+    console.log('taille produits filtre page', this.filteredProductsByPage.length)
+    console.log('taille produits filtre language', this.filteredProductsByLanguage.length)
+
+    this.pageFilter = state
+    this.joinFilteredProducts()
+  }
 
   filterLanguage(language: EnumLanguage) {
-    this.filteredProducts = this.products.filter(product => {
+    this.filteredProductsByLanguage = this.products.filter(product => {
       return product.language == language
     })
+    console.log('taille produits filtre language', this.filteredProductsByLanguage.length)
+    console.log('taille produits filtre page', this.filteredProductsByPage.length)
+
     this.languageFilter = language
+    this.joinFilteredProducts()
   }
 
   eraseFilters() {
     this.filteredProducts = this.products
+    this.filteredProductsByLanguage = this.products
+    this.filteredProductsByPage = this.products
     this.languageFilter = null
+    this.pageFilter = null
   }
 
   changePage($event: any) {
     this.p = $event
     document.documentElement.scrollTop = 0
+  }
+
+  joinFilteredProducts() {
+    this.filteredProducts = this.filteredProductsByLanguage.filter(product => this.filteredProductsByPage.includes(product))
   }
 
 
