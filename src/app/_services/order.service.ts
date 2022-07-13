@@ -25,7 +25,7 @@ export class OrderService {
   }
 
   validatePayment() {
-    return this.httpClient.get<{ status: Number, data: any, message: string }>
+    return this.httpClient.get<{ status: Number, data: IOrder, message: string }>
     (this.url + '/validate-payment');
   }
 

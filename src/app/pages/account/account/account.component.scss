@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
 $marine-color: #000083;
+$dark-blue: rgb(0, 0, 84);
 $blue-sky: #22B5F0;
 $light-grey: #dedede;
+$nav-blue: rgb(155, 208, 255);
+
 
 button {
     font-size: 1.2em;
@@ -12,7 +15,8 @@ button {
 
 
 .account {
-    margin-top: 50px;
+    margin: 50px 0;
+    margin-bottom: 100px;
     padding-left: 15%;
     width: 70%;
 
@@ -50,7 +54,7 @@ button {
 
             button {
                 color: $marine-color;
-                background-color: $blue-sky;
+                background-color: $nav-blue;
             }
         }
 

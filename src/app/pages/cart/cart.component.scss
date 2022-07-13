@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
 $marine-color: #000083;
 $blue-sky: #22B5F0;
+$nav-blue: rgb(155, 208, 255);
 $light-grey: #dedede;
 
 @mixin flex-center {
@@ -24,6 +25,11 @@ $light-grey: #dedede;
             font-weight: bold;
             margin: 70px 0 50px 0;
 
+        }
+
+        
+        .text {
+            font-size: 1.6em;
         }
 
 
@@ -176,7 +182,7 @@ $light-grey: #dedede;
 
             .continue-shopping-btn {
                 color: $marine-color;
-                background-color: $blue-sky;
+                background-color: $nav-blue;
             }
 
             .validate-order-btn {

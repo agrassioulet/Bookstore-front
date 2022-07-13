@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
+$marine-color: #000083;
+$blue-sky: #22B5F0;
+$light-grey: #dedede;
+
+
+.success-payment {
+
+
+    .block {
+        margin: 70px 0;
+
+        .title {
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+    }
+
+    .actions {
+        margin-bottom: 60px;
+        button {
+            >* {
+                vertical-align: middle;
+            }
+
+            background-color: transparent;
+            border: none;
+
+            span {
+                margin-left: 5px;
+            }
+
+            i {
+                font-size: 1.6em;
+            }
+        }
+    }
+
+
+
+
+}

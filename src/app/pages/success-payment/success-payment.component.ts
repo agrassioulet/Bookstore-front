@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IOrder } from 'src/app/models/order';
 import { OrderService } from 'src/app/_services/order.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { OrderService } from 'src/app/_services/order.service';
   styleUrls: ['./success-payment.component.scss']
 })
 export class SuccessPaymentComponent implements OnInit {
+  order: IOrder | null = null
 
   constructor(
     private orderService: OrderService
@@ -20,6 +22,9 @@ export class SuccessPaymentComponent implements OnInit {
   validatePayment() {
     this.orderService.validatePayment().subscribe(result => {
       console.log(result)
+      if(result.status == 1) {
+        this.order = result.data
+      }
     })
   }
 

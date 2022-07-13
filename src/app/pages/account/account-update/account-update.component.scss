@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Convergence&family=Secular+One&family=Varela+Round&display=swap');
 $marine-color: #000083;
 $blue-sky: #22B5F0;
+$nav-blue: rgb(155, 208, 255);
+
 
 .account-update-container {
     overflow-y: scroll;
-    background-color: rgb(194, 228, 228);
+    background-color: $nav-blue; //rgb(194, 228, 228);
     height: 100vh;
 
     .box {
@@ -68,7 +70,7 @@ $blue-sky: #22B5F0;
         }
 
         .subscribe-btn {
-            background-color: $blue-sky;
+            background-color: $nav-blue;
             color: $marine-color;
             font-size: 1.4em;
             padding: 15px 30px;

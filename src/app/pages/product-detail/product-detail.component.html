@@ -1,3 +1,5 @@
+<div>
+
 <app-navbar></app-navbar>
 
 
@@ -56,31 +58,62 @@
 
                 <div class="details-block">
                     <p class="title">Détails</p>
-                    <p class="text"><span class="prop-text">Date de publication</span><span class="value-text">9 juil.
-                            2014</span></p>
-                    <p class="text"><span class="prop-text">Langue</span><span class="value-text">English</span></p>
-                    <p class="text"><span class="prop-text">ISBN</span><span class="value-text">9</span></p>
-                    <p class="text"><span class="prop-text">Catégorie</span><span class="value-text">Parents &
-                            famille</span></p>
-                    <p class="text"><span class="prop-text">Copyright</span><span class="value-text">Tous droits
-                            réservés - Licence de copyright standard</span></p>
-                    <p class="text"><span class="prop-text">Contributeurs</span><span class="value-text">James
-                            Jones</span></p>
+                    <p class="text">
+                        <span class="prop-text">Date de publication</span>
+                        <span class="value-text">{{product.publication_date | date:'dd/MM/YYYY'}}</span>
+                    </p>
+                    <p class="text">
+                        <span class="prop-text">Langue</span>
+                        <span class="value-text">{{product.language}}</span>
+                    </p>
+                    <p class="text">
+                        <span class="prop-text">ISBN</span>
+                        <span class="value-text">{{product.isbn}}</span>
+                    </p>
+                    
+                    <p class="text">
+                        <span class="prop-text">Catégorie</span>
+                        <span class="value-text">{{product.category.title}}</span>
+                    </p>
+                    <p class="text">
+                        <span class="prop-text">Copyright</span>
+                        <span class="value-text">Tous droits réservés - Licence de copyright standard</span>
+                    </p>
+                    
+                    <p class="text">
+                        <span class="prop-text">Contributeurs</span>
+                        <span class="value-text">{{product.contributor.name}}</span>
+                    </p>
 
                 </div>
                 <div class="properties-block">
                     <p class="title">Caractéristiques</p>
-                    <p class="text"><span class="prop-text">Pages</span><span class="value-text">78</span></p>
-                    <p class="text"><span class="prop-text">Reliure</span><span class="value-text">Livre à couverture
-                            souple</span></p>
-                    <p class="text"><span class="prop-text">Couleur de l’intérieur</span><span class="value-text">Noir
-                            et blanc</span></p>
-                    <p class="text"><span class="prop-text">Dimensions</span><span class="value-text">140 x 216
-                            mm</span></p>
+                    <p class="text">
+                        <span class="prop-text">Pages</span>
+                        <span class="value-text">{{product.page}}</span>
+                    </p>
+
+                    <p class="text">
+                        <span class="prop-text">Reliure</span>
+                        <span class="value-text">Livre à couverture souple</span>
+                    </p>
+
+                    <p class="text">
+                        <span class="prop-text">Couleur de l’intérieur</span>
+                        <span class="value-text">Noir et blanc</span>
+                    </p>
+
+                    <p class="text">
+                        <span class="prop-text">Dimensions</span>
+                        <span class="value-text">140 x 216mm</span>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 <app-footer></app-footer>
+
+</div>

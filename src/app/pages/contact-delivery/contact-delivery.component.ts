@@ -10,6 +10,8 @@ import { IDeliveryContact, DeliveryContactOperator } from 'src/app/models/delive
 import { UserService } from 'src/app/_services/user.service';
 import { IProductCart } from 'src/app/models/product_cart';
 
+// import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+// import { render } from 'creditcardpayments/creditCardPayments'
 import { loadStripe } from '@stripe/stripe-js';
 import { environment } from 'src/environments/environment';
 
@@ -21,6 +23,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ContactDeliveryComponent implements OnInit {
   stripePromise = loadStripe(environment.STRIPE_KEY);
+  // public payPalConfig?: IPayPalConfig;
 
   total: Number = 0
   paymentHandler:any = null;
@@ -31,7 +34,7 @@ export class ContactDeliveryComponent implements OnInit {
   contactDeliveryForm = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
-    company: new FormControl('', [Validators.required]),
+    company: new FormControl('', []),
     adress: new FormControl('', [Validators.required]),
     postalCode: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
@@ -47,7 +50,16 @@ export class ContactDeliveryComponent implements OnInit {
     private productService: ProductService,
     private userService: UserService,
     private paymentService: PaymentService
-  ) { }
+  ) {
+    // this.initConfig();
+    // render(
+    //   {
+    //     id: '#myPaypalButtons',
+    //     currency: 'USD',
+    //     value: '100.00',
+    //     onApprove: (details) => { alert('Payment done') }
+    //   })
+  }
 
   ngOnInit(): void {
     this.initData()
@@ -118,6 +130,73 @@ export class ContactDeliveryComponent implements OnInit {
       this.message = 'Merci de renseigner tous les champs.'
     }
   }
+
+
+
+  // private initConfig(): void {
+  //   this.payPalConfig = {
+  //   currency: 'EUR',
+  //   clientId: 'sb',
+  //   createOrderOnClient: (data) => <ICreateOrderRequest>{
+  //     intent: 'CAPTURE',
+  //     purchase_units: [
+  //       {
+  //         amount: {
+  //           currency_code: 'EUR',
+  //           value: '9.99',
+  //           breakdown: {
+  //             item_total: {
+  //               currency_code: 'EUR',
+  //               value: '9.99'
+  //             }
+  //           }
+  //         },
+  //         items: [
+  //           {
+  //             name: 'Enterprise Subscription',
+  //             quantity: '1',
+  //             category: 'DIGITAL_GOODS',
+  //             unit_amount: {
+  //               currency_code: 'EUR',
+  //               value: '9.99',
+  //             },
+  //           }
+  //         ]
+  //       }
+  //     ]
+  //   },
+  //   advanced: {
+  //     commit: 'true'
+  //   },
+  //   style: {
+  //     label: 'paypal',
+  //     layout: 'vertical'
+  //   },
+  //   onApprove: (data, actions) => {
+  //     console.log('onApprove - transaction was approved, but not authorized', data, actions);
+  //     actions.order.get().then((details: any) => {
+  //       console.log('onApprove - you can get full order details inside onApprove: ', details);
+  //     });
+  //   },
+  //   onClientAuthorization: (data) => {
+  //     console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+    
+  //   },
+  //   onShippingChange: function(data, actions) {
+
+
+  //   },
+  //   onCancel: (data, actions) => {
+  //     console.log('OnCancel', data, actions);
+  //   },
+  //   onError: err => {
+  //     console.log('OnError', err);
+  //   },
+  //   onClick: (data, actions) => {
+  //     console.log('onClick', data, actions);
+  //   },
+  // };
+  // }
 
 
 }

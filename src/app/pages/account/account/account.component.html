@@ -1,50 +1,55 @@
-<app-navbar></app-navbar>
+<div>
+    <app-navbar></app-navbar>
 
-<div class="account">
+    <div class="account">
 
-    <p class="title">Paramètres de votre compte</p>
-
-    <div class="user-contact">
-        <p class="title">Informations de contact</p>
-        <div>
-            <p class="user-name">Alexandre GRASSIOULET</p>
-            <p class="user-email">e-mail : alexndr68@gmail.com</p>
-            <p class="user-password">********</p>
-
-            <button routerLink="/account-update">Mettre à jour</button>
+        <p class="title">Paramètres de votre compte</p>
+    
+        <div class="user-contact">
+            <p class="title">Informations de contact</p>
+            <div>
+                <p class="user-name">Alexandre GRASSIOULET</p>
+                <p class="user-email">e-mail : alexndr68@gmail.com</p>
+                <p class="user-password">********</p>
+    
+                <button routerLink="/account-update">Mettre à jour</button>
+            </div>
+        </div>
+    
+        <div class="user-orders">
+            <p class="title">Historique des commandes</p>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Date de commande</th>
+                            <th>Montant total</th>
+                            <th>Statut</th>
+                            <th>Facture</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td>{{order.client_ref}}</td>
+                            <td>{{order.validation_date | date:'dd/MM/YYYY'}}</td>
+                            <td>{{getTotal(order)}} €</td>
+                            <td>{{order.status}}</td>
+                            <td>Afficher</td>
+                        </tr>
+     
+                    </tbody>
+    
+    
+                </table>
+    
+            </div>
         </div>
     </div>
 
-    <div class="user-orders">
-        <p class="title">Historique des commandes</p>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Référence</th>
-                        <th>Date de commande</th>
-                        <th>Montant total</th>
-                        <th>Statut</th>
-                        <th>Facture</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr *ngFor="let order of orders">
-                        <td>{{order.client_ref}}</td>
-                        <td>{{order.validation_date | date:'dd/MM/YYYY'}}</td>
-                        <td>{{getTotal(order)}} €</td>
-                        <td>{{order.status}}</td>
-                        <td>Afficher</td>
-                    </tr>
- 
-                </tbody>
-
-
-            </table>
-
-        </div>
-    </div>
-
-
+    <app-footer></app-footer>
 </div>
+
+
+

@@ -1,50 +1,60 @@
-<app-navbar></app-navbar>
+<div>
+    <app-navbar></app-navbar>
+
+    <div class="cart-container">
+
+        <div class="cart">
+
+            <p class="title">Panier</p>
+
+            <p class="text" *ngIf="order.product_cart!= undefined && !order.product_cart.length">Votre panier est vide.</p>
+
+            <div class="product-cart-container" *ngFor="let productCart of order.product_cart">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="title">{{ productCart.product.title }}</div>
+
+                    <div class="other-infos">
+                        <span class="category">{{ productCart.product.category.title }} - </span>
+                        <span class="isbn">{{ productCart.product.isbn }}</span>
+                    </div>
+                </div>
 
 
-<div class="cart-container">
-
-    <div class="cart">
-
-        <p class="title">Panier</p>
-
-        <div class="product-cart-container" *ngFor="let productCart of order.product_cart">
-
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="title">{{ productCart.product.title }}</div>
-
-                <div class="other-infos">
-                    <span class="category">{{ productCart.product.category.title }} - </span>
-                    <span class="isbn">{{ productCart.product.isbn }}</span>
+                <div class="product-cart">
+                    <div class="img-container"><img src="https://picsum.photos/200/300"></div>
+                    <div class="logo"><i class="fa-solid fa-book"></i></div>
+                    <div class="price-product">EUR {{productCart.product.price}}</div>
+                    <div class="quantity">
+                        <div (click)="decreaseQuantity(productCart)"><i class="fa-solid fa-minus"></i></div>
+                        <span class="quantity-number">{{productCart.quantity}}</span>
+                        <div (click)="increaseQuantity(productCart)"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="price-total-product">EUR {{productCart.product.price * productCart.quantity | number :
+                        '1.2-2'}}</div>
+                    <button (click)="removeProductCart(productCart)"
+                        class="remove-btn hide-button-style">Supprimer</button>
                 </div>
             </div>
 
-
-            <div class="product-cart">
-                <div class="img-container"><img src="https://picsum.photos/200/300"></div>
-                <div class="logo"><i class="fa-solid fa-book"></i></div>
-                <div class="price-product">EUR {{productCart.product.price}}</div>
-                <div class="quantity">
-                    <div (click)="decreaseQuantity(productCart)"><i class="fa-solid fa-minus"></i></div>
-                    <span class="quantity-number">{{productCart.quantity}}</span>
-                    <div (click)="increaseQuantity(productCart)"><i class="fa-solid fa-plus"></i></div>
-                </div>
-                <div class="price-total-product">EUR {{productCart.product.price * productCart.quantity | number : '1.2-2'}}</div>
-                <button (click)="removeProductCart(productCart)" class="remove-btn hide-button-style">Supprimer</button>
+            <div class="subtotal" *ngIf="order.product_cart!= undefined && order.product_cart.length">
+                <span class="label">Sous-total de la commande</span>
+                <span class="value">EUR {{subtotal | number : '1.2-2'}}</span>
             </div>
+
+            <div class="actions">
+                <button class="continue-shopping-btn" routerLink="/product-list">Continuer mes achats</button>
+                <button *ngIf="order.product_cart!= undefined && order.product_cart.length" class="validate-order-btn"
+                    routerLink="/contact-delivery">Valider la commande
+                </button>
+            </div>
+
+
+
         </div>
-
-        <div class="subtotal">
-            <span class="label">Sous-total de la commande</span>
-            <span class="value">EUR {{subtotal | number : '1.2-2'}}</span>
-        </div>
-
-        <div class="actions">
-            <button class="continue-shopping-btn" routerLink="/product-list">Continuer mes achats</button>
-            <button class="validate-order-btn" routerLink="/contact-delivery">Valider la commande</button>
-        </div>
-
-
 
     </div>
+
+    <app-footer></app-footer>
 
 </div>

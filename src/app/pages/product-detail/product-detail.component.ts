@@ -18,6 +18,7 @@ export class ProductDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    document.documentElement.scrollTop = 0
     var product_id = this.activatedRoute.snapshot.paramMap.get("product_id") ?? ''
     this.productService.getProductById(product_id).subscribe(result => {
       console.log('get product : ', result)
@@ -27,6 +28,11 @@ export class ProductDetailComponent implements OnInit {
       }
 
     })
+  }
+
+  test() {
+    document.documentElement.scrollTop = 0
+
   }
 
   addToCart(product: IProduct) {

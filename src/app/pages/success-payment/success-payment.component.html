@@ -1,1 +1,23 @@
-<p>success-payment works!</p>
+<app-navbar></app-navbar>
+
+<div class="success-payment">
+
+
+    <div class="container">
+
+        <div class="block">
+            <p class="title">CONFIRMATION COMMANDE</p>
+            <p>Votre commande a bien été enregistrée sous la référence suivante :</p>
+            <p class="" *ngIf="order != null"><strong>{{ order.client_ref}}</strong></p>
+            <p>Vous allez recevoir un e-mail de confirmation.</p>
+        </div>
+
+        <div class="actions">
+            <button routerLink=""><i class="fa-solid fa-circle-left"></i><span>Retour accueil</span></button>
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

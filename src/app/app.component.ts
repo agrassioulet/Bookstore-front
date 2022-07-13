@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { render } from 'creditcardpayments/creditCardPayments'
+import { NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
+// import { render } from 'creditcardpayments/creditCardPayments'
 
 @Component({
   selector: 'app-root',
@@ -12,17 +14,25 @@ export class AppComponent {
   paymentHandler: any = null;
 
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private router: Router) {
 
-    render(
-      {
-        id: '#myPaypalButtons',
-        currency: 'USD',
-        value: '100.00',
-        onApprove: (details) => { alert('Payment done') }
-      })
-
+    // render(
+    //   {
+    //     id: '#myPaypalButtons',
+    //     currency: 'USD',
+    //     value: '100.00',
+    //     onApprove: (details) => { alert('Payment done') }
+    //   })
   }
-  ngOnInit(): void { }
+  
+  
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        window.scrollTo(0, 0)
+    });
+}
 
 }

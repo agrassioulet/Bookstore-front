@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="country">PAYS</label>
+                    <label for="country">PAYS *</label>
                     <div class="select-container">
                         <select name="country" id="country" formControlName="country"
                             [(ngModel)]="deliveryContact.country">
@@ -54,13 +54,13 @@
                 </div>
 
                 <div class="field">
-                    <label for="firstname">Prénom</label>
+                    <label for="firstname">Prénom *</label>
                     <input type="text" placeholder="Prénom" formControlName="firstname"
                         [(ngModel)]="deliveryContact.firstname">
                 </div>
 
                 <div class="field">
-                    <label for="lastname">Nom</label>
+                    <label for="lastname">Nom *</label>
                     <input type="text" name="lastname" id="lastname" placeholder="Nom" formControlName="lastname"
                         [(ngModel)]="deliveryContact.lastname">
                 </div>
@@ -72,25 +72,25 @@
                 </div>
 
                 <div class="field">
-                    <label for="adress">Adresse</label>
+                    <label for="adress">Adresse *</label>
                     <input type="text" name="adress" id="adress" placeholder="Adresse" formControlName="adress"
                         [(ngModel)]="deliveryContact.adress">
                 </div>
 
                 <div class="field">
-                    <label for="postal-code">Code postal</label>
+                    <label for="postal-code">Code postal *</label>
                     <input type="text" name="postal-code" id="postal-code" placeholder="Code postal"
                         formControlName="postalCode" [(ngModel)]="deliveryContact.postalCode">
                 </div>
 
                 <div class="field">
-                    <label for="adress">Ville</label>
+                    <label for="adress">Ville *</label>
                     <input type="text" name="city" id="city" placeholder="Ville" formControlName="city"
                         [(ngModel)]="deliveryContact.city">
                 </div>
 
                 <div class="field">
-                    <label for="phone-number">Téléphone</label>
+                    <label for="phone-number">Téléphone *</label>
                     <input type="text" name="phone-number" id="phone-number" placeholder="Téléphone"
                         formControlName="phoneNumber" [(ngModel)]="deliveryContact.phoneNumber">
                 </div>
@@ -105,15 +105,13 @@
 
 
                 <div class="actions">
+                    <!-- <div id="myPaypalButtons"></div> -->
+                    <!-- <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
                     <!-- <button (click)="checkout()">Payer</button> -->
                     <button class="continue-payment-btn" (click)="saveDeliveryContactAndPay()">Valider le paiement</button>
                 </div>
-
             </div>
-
         </form>
-
-
     </div>
 
 

@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './tools/navbar/navbar.component';
 
 import { MATERIAL } from './material';
+import { NgxPayPalModule } from 'ngx-paypal';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './tools/footer/footer.component';
@@ -54,6 +55,7 @@ import { FailurePaymentComponent } from './pages/failure-payment/failure-payment
     FailurePaymentComponent
   ],
   imports: [
+    NgxPayPalModule,
     HttpClientModule,
     BrowserModule,
     NgxBootstrapIconsModule.pick(allIcons),
