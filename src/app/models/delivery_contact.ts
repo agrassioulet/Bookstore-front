@@ -2,6 +2,7 @@ export interface IDeliveryContact {
     adress: String;
     city: String;
     company: String;
+    email: String;
     country: String;
     firstname: String;
     lastname: String;
@@ -17,6 +18,7 @@ export const DeliveryContactOperator = {
             city: '',
             company: '',
             country: '',
+            email: '',
             firstname: '',
             lastname: '',
             phoneNumber: '',

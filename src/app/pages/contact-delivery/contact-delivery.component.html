@@ -21,7 +21,8 @@
 
                 <div class="field">
                     <label class="email-label">E-MAIL</label>
-                    <input class="email-input" type="text" value="alexandre.grassioulet@hotmail.fr">
+                    <input class="email-input" type="text" formControlName="email"
+                    [(ngModel)]="deliveryContact.email">
                 </div>
 
                 <div class="email-marketing">
@@ -127,7 +128,7 @@
                         <span class="quantity-product">{{productCart.quantity}}</span>
                     </div>
 
-                    <img src="https://picsum.photos/200/300">
+                    <img src="assets/images/image_books/{{productCart.product.img_url}}">
                 </div>
                 <div class="logo"><i class="fa-solid fa-book"></i></div>
                 <div class="price-total-product">{{productCart.product.price}} €</div>

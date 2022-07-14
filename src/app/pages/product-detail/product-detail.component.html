@@ -9,37 +9,32 @@
 
         <div class="row">
 
-            <div class="col-5">
-
-                <div class="img-container d-flex justify-content-end">
-
-                    <img src="https://picsum.photos/200/300">
-
-
-
+            <div class="col-lg-5 col-md-12  d-flex justify-content-lg-end">
+                <div class="img-container mb-5">
+                    <img src="assets/images/image_books/{{product.img_url}}">
                 </div>
-
-
             </div>
-            <div class="col-7">
 
+            <div class="col-lg-7 col-md-12">
                 <div class="block1">
 
                     <p class="title">{{product.title}}</p>
-                    <p class="contributor"><img src="../../../assets/images/1595588041Pen.svg">Par
+                    <p class="contributor">
+                        <img src="../../../assets/images/1595588041Pen.svg">Par
                         <span class="contributor-name">{{ product.contributor.name }}</span>
                     </p>
                     <button class="add-cart-b" (click)="addToCart(product)">Ajouter au panier</button>
+                    <div class="warning text-warning" *ngIf="displayAuthWarning">Vous devez vous authentifier pour faire des achats.</div>
                     <p class="social-share">
                         <button class="hide-button-style"><i class="fa-brands fa-twitter"></i></button>
                         <button class="hide-button-style"><i class="fa-brands fa-facebook-f"></i></button>
                         <button class="hide-button-style"><i class="fa-brands fa-instagram"></i></button>
                     </p>
-                    <p class="time-delivery"><i class="fa-solid fa-truck"></i>Délai de livraison prévu entre 3 et 5
-                        jours</p>
+                    <p class="time-delivery">
+                        <i class="fa-solid fa-truck"></i>
+                        Délai de livraison prévu entre 3 et 5 jours
+                    </p>
                     <p class="price">EUR {{product.price}}</p>
-
-
                 </div>
 
             </div>
@@ -50,64 +45,85 @@
         <div class="block2">
 
 
-            <p class="description">The Community Justice Center Story is written in perspective of the author and
+            <p class="description mt-4">The Community Justice Center Story is written in perspective of the author and
                 his experiences with restorative justice.</p>
 
 
             <div class="block3">
 
-                <div class="details-block">
-                    <p class="title">Détails</p>
-                    <p class="text">
-                        <span class="prop-text">Date de publication</span>
-                        <span class="value-text">{{product.publication_date | date:'dd/MM/YYYY'}}</span>
-                    </p>
-                    <p class="text">
-                        <span class="prop-text">Langue</span>
-                        <span class="value-text">{{product.language}}</span>
-                    </p>
-                    <p class="text">
-                        <span class="prop-text">ISBN</span>
-                        <span class="value-text">{{product.isbn}}</span>
-                    </p>
-                    
-                    <p class="text">
-                        <span class="prop-text">Catégorie</span>
-                        <span class="value-text">{{product.category.title}}</span>
-                    </p>
-                    <p class="text">
-                        <span class="prop-text">Copyright</span>
-                        <span class="value-text">Tous droits réservés - Licence de copyright standard</span>
-                    </p>
-                    
-                    <p class="text">
-                        <span class="prop-text">Contributeurs</span>
-                        <span class="value-text">{{product.contributor.name}}</span>
-                    </p>
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-12">
+
+                        <div class="details-block">
+                            <p class="title">Détails</p>
+                            <p class="text">
+                                <span class="prop-text">Date de publication</span>
+                                <span class="value-text">{{product.publication_date | date:'dd/MM/YYYY'}}</span>
+                            </p>
+                            <p class="text">
+                                <span class="prop-text">Langue</span>
+                                <span class="value-text">{{product.language}}</span>
+                            </p>
+                            <p class="text">
+                                <span class="prop-text">ISBN</span>
+                                <span class="value-text">{{product.isbn}}</span>
+                            </p>
+                            
+                            <p class="text">
+                                <span class="prop-text">Catégorie</span>
+                                <span class="value-text">{{product.category.title}}</span>
+                            </p>
+                            <p class="text">
+                                <span class="prop-text">Copyright</span>
+                                <span class="value-text">Tous droits réservés</span>
+                            </p>
+                            
+                            <p class="text">
+                                <span class="prop-text">Contributeurs</span>
+                                <span class="value-text">{{product.contributor.name}}</span>
+                            </p>
+        
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+
+
+                        <div class="properties-block">
+                            <p class="title">Caractéristiques</p>
+                            <p class="text">
+                                <span class="prop-text">Pages</span>
+                                <span class="value-text">{{product.page}}</span>
+                            </p>
+        
+                            <p class="text">
+                                <span class="prop-text">Reliure</span>
+                                <span class="value-text">Livre à couverture souple</span>
+                            </p>
+        
+                            <p class="text">
+                                <span class="prop-text">Couleur de l’intérieur</span>
+                                <span class="value-text">Noir et blanc</span>
+                            </p>
+        
+                            <p class="text">
+                                <span class="prop-text">Dimensions</span>
+                                <span class="value-text">140 x 216mm</span>
+                            </p>
+                        </div>
+
+
+                    </div>
+
 
                 </div>
-                <div class="properties-block">
-                    <p class="title">Caractéristiques</p>
-                    <p class="text">
-                        <span class="prop-text">Pages</span>
-                        <span class="value-text">{{product.page}}</span>
-                    </p>
 
-                    <p class="text">
-                        <span class="prop-text">Reliure</span>
-                        <span class="value-text">Livre à couverture souple</span>
-                    </p>
 
-                    <p class="text">
-                        <span class="prop-text">Couleur de l’intérieur</span>
-                        <span class="value-text">Noir et blanc</span>
-                    </p>
 
-                    <p class="text">
-                        <span class="prop-text">Dimensions</span>
-                        <span class="value-text">140 x 216mm</span>
-                    </p>
-                </div>
+
+
             </div>
         </div>
     </div>

@@ -35,6 +35,7 @@ export class ContactDeliveryComponent implements OnInit {
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     company: new FormControl('', []),
+    email: new FormControl('', [Validators.required]),
     adress: new FormControl('', [Validators.required]),
     postalCode: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),

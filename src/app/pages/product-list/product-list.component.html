@@ -97,7 +97,9 @@
                         *ngFor="let product of filteredProducts | paginate : { itemsPerPage: 10, currentPage: p}">
                         <div class="product d-flex">
 
-                            <div class="img-container"><img src="https://picsum.photos/200/300"></div>
+                            <div routerLink="/product-detail/{{product._id}}" class="img-container">
+                                <img src="assets/images/image_books/{{product.img_url}}">
+                            </div>
 
                             <div class="infos d-flex flex-column">
                                 <p class="title cursor-pointer" routerLink="/product-detail/{{product._id}}">{{
@@ -126,7 +128,6 @@
                                     <div class="actions cursor-pointer">
                                         <a routerLink="/product-detail/{{product._id}}" class="hide-button-style"><i
                                                 class="fa-solid fa-file"></i></a>
-
                                     </div>
                                 </div>
                             </div>
