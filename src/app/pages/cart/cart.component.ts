@@ -70,7 +70,6 @@ export class CartComponent implements OnInit {
         this.reload.Refreshrequired.next()
       })
     }
-
   }
 
   removeProductCart(productCart: IProductCart) {

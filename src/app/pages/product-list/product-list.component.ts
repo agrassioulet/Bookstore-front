@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ICategory } from 'src/app/models/category';
 import { IProduct, ProductOperators } from 'src/app/models/product';
@@ -10,9 +11,9 @@ import { ProductService } from 'src/app/_services/product.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+
   keyWord: string | null = null
   codeCategory: string | null = null
-
 
   products: IProduct[] = [];
   filteredProducts: IProduct[] = [];
@@ -55,11 +56,8 @@ export class ProductListComponent implements OnInit {
       this.initProductsByCategory(code)
     }
     else {
-      console.log('init by null kyword')
       this.initProductsByKeyWord('')
     }
-    console.log('this.products ', this.products)
-    console.log('filteredProductsByPage ', this.filteredProductsByPage)
     this.initCategories()
   }
 
@@ -95,10 +93,8 @@ export class ProductListComponent implements OnInit {
   initProductsByCategory(code: string) {
     this.products = []
     this.productService.getAllProducts().subscribe(result => {
-      console.log('getAllProducts : ', result)
       this.products = result.data
       if (code != '') {
-        console.log('on filter')
         this.products = this.products.filter(product => product.category.code == code)
       }
       this.filteredProducts = this.products
@@ -119,7 +115,6 @@ export class ProductListComponent implements OnInit {
     this.productService.getCategoryProductByCode(code).subscribe(result => {
       if (result.status == 1) {
         this.selectedCategory = result.data
-        console.log('selected cat: ', this.selectedCategory)
       }
     })
   }
@@ -128,8 +123,6 @@ export class ProductListComponent implements OnInit {
     this.filteredProductsByPage = this.products.filter(product => {
       return (minNum <= product.page && product.page <= maxNum)
     })
-    console.log('taille produits filtre page', this.filteredProductsByPage.length)
-    console.log('taille produits filtre language', this.filteredProductsByLanguage.length)
 
     this.pageFilter = state
     this.joinFilteredProducts()
@@ -139,8 +132,6 @@ export class ProductListComponent implements OnInit {
     this.filteredProductsByLanguage = this.products.filter(product => {
       return product.language == language
     })
-    console.log('taille produits filtre language', this.filteredProductsByLanguage.length)
-    console.log('taille produits filtre page', this.filteredProductsByPage.length)
 
     this.languageFilter = language
     this.joinFilteredProducts()

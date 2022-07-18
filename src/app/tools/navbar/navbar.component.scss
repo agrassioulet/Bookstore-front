@@ -32,7 +32,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // height: 70px;
     padding: 20px 30px;
     background-color: rgb(155, 208, 255);
 
@@ -191,6 +190,7 @@ a {
     }
 
     .nav-categories {
+        overflow: hidden;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         padding: 20px 100px;
         display: flex;

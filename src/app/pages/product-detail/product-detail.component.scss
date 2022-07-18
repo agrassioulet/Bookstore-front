@@ -2,6 +2,9 @@
 
 $marine-color: #000083;
 $blue-sky: #22B5F0;
+$star-active : rgb(255, 255, 0);
+$star-middle-color : rgb(193, 193, 0);
+$star-inactive : rgb(115, 115, 0);
 
 .product-detail-container {
     
@@ -151,6 +154,66 @@ $blue-sky: #22B5F0;
 
 
         }
+    }
+
+
+    .evaluation {
+        margin-top: 50px;
+
+        .text {
+            font-size: 1.2em;
+        }
+
+        .number-stars {
+            margin-top: 12px;
+            margin-bottom: 9px;
+            width: 150px;
+        }
+
+        i {
+            cursor: pointer;
+            font-size: 1.5em;
+            color: $star-inactive;
+        }
+
+        // i.inactive {
+        //     color: $star-inactive;
+        // }
+
+        i.active {
+            color: $star-active;
+        }
+
+        .eval-input-text {
+            height: 200px;
+
+            textarea {height: 100%;  resize: none;}
+        }
+
+        button {margin: 5px 0;}
+
+    }
+
+    .comments {
+
+        button {
+            margin-bottom: 10px;
+        }
+
+        margin: 20px 0;
+        width: 50%;
+
+        .comment {
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 20px;
+            background-color: rgb(234, 234, 234);
+        }
+
+        .comment:nth-child(2n+1) {
+            background-color: rgb(247, 247, 247);
+        }
+
     }
 }
 

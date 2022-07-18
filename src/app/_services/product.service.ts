@@ -15,6 +15,21 @@ export class ProductService {
   url = environment.URL_BACKEND + '/product'
   constructor(private httpClient: HttpClient) {}
 
+
+  // EVALUATION METHOD
+  public addEvaluation(comment: string, note: number, productID: string) {
+    return this.httpClient.post<{status: number, data: any, message: string}>(this.url + '/add-evaluation', 
+    {comment: comment, note: note, productID: productID});
+  }
+
+  public getComments(productID: string) {
+    return this.httpClient.post<{status: number, data: any, message: string}>(this.url + '/get-comments', 
+    { productID: productID});
+  }
+
+
+  // PRODUCTS
+
   public getAllProducts() {
     return this.httpClient.get<{status: number, data: IProduct[]}>(this.url + '/get-all-products');
   }
