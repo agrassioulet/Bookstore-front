@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-3 filter-part">
+            <div class="col-lg-3 col-md-12 filter-part">
                 <p class="title">Affiner les résultats :</p>
 
                 <div class="filter-list">
@@ -84,9 +84,9 @@
 
             </div>
 
-            <div class="col-8 product-list-part">
+            <div class="col-lg-8 col-md-12 product-list-part">
 
-                <div class="product-list-container">
+                <div class="product-list-part">
 
                     <p class="title" *ngIf="selectedCategory != null">Catégorie : {{ selectedCategory.title }}</p>
                     <p class="title" *ngIf="selectedCategory == null && keyWord == null">Tous nos produits</p>

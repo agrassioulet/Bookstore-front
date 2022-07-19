@@ -6,6 +6,7 @@ import { IEvaluation } from 'src/app/models/evaluation';
 import { IProduct, ProductOperators } from 'src/app/models/product';
 import { AuthentificationService } from 'src/app/_services/authentification.service';
 import { ProductService } from 'src/app/_services/product.service';
+import { ReloadService } from 'src/app/_services/reload.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,7 +15,7 @@ import { ProductService } from 'src/app/_services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
   displayAuthWarning = false;
-  commentPanel = false;
+  commentPanel = true;
   product: IProduct = ProductOperators.initProduct();
   loaded = false;
   selectedNote = 0;
@@ -30,7 +31,9 @@ export class ProductDetailComponent implements OnInit {
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private auth: AuthentificationService
+    private auth: AuthentificationService,
+    private reload: ReloadService
+
   ) { }
 
 
@@ -66,6 +69,10 @@ export class ProductDetailComponent implements OnInit {
   evaluate() {
     this.productService.addEvaluation(this.textComment, this.selectedNote, this.product._id).subscribe(result => {
       console.log(result)
+      // this.router.navigate(['/product-detail/' + this.product._id])
+      this.getComments(this.product._id)
+
+
     })
   }
 
